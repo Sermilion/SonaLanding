@@ -514,8 +514,20 @@ a:hover {
   font-size: 0.95rem;
 }
 
+.desktop-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
 .desktop-frame {
-  margin: 40px 0 0;
+  min-width: 0;
+  margin: 0;
+}
+
+.desktop-frame--primary {
+  grid-column: 1 / -1;
 }
 
 .desktop-screenshot {
@@ -724,6 +736,10 @@ a:hover {
 }
 
 @media (max-width: 720px) {
+  .desktop-gallery {
+    grid-template-columns: 1fr;
+  }
+
   .site-nav a:not(.nav-github) {
     display: none;
   }
