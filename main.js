@@ -45,6 +45,10 @@
     const bar = document.getElementById("app-bar");
     const log = document.getElementById("app-log");
     const start = steps.findIndex((s) => s.classList.contains("is-run"));
+    const initialPhase = phaseLabel.textContent;
+    const initialRowState = rowState.textContent;
+    const initialProgress = bar.style.width;
+    const initialLog = Array.from(log.children, (item) => item.cloneNode(true));
     let current = start;
 
     const LOG = {
@@ -72,13 +76,26 @@
       while (log.children.length > 3) log.removeChild(log.firstElementChild);
     };
 
+    const reset = () => {
+      current = start;
+      render();
+      phaseLabel.textContent = initialPhase;
+      rowState.textContent = initialRowState;
+      bar.style.width = initialProgress;
+      log.replaceChildren(...initialLog.map((item) => item.cloneNode(true)));
+      window.setTimeout(advance, 1000);
+    };
+
     const advance = () => {
-      addLog(steps[current].textContent.trim());
-      if (current < steps.length - 1) {
-        current += 1;
-        render();
-        window.setTimeout(advance, 1000);
+      if (current === steps.length - 1) {
+        addLog(steps[current].textContent.trim());
+        window.setTimeout(reset, 1000);
+        return;
       }
+      addLog(steps[current].textContent.trim());
+      current += 1;
+      render();
+      window.setTimeout(advance, 1000);
     };
     window.setTimeout(advance, 1000);
   }
