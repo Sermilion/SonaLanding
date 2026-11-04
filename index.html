@@ -2,395 +2,455 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Skill Bill — Spec in, merge-ready PR out</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>TYPE SHI*T — Fast forward development</title>
     <meta
       name="description"
-      content="Hand Skill Bill a spec and get back a merge-ready PR — planned, implemented, stack-specialist-reviewed, audited against the spec, and quality-gated."
+      content="TYPE SHI*T holds your AI coding agent to an engineering process: plan, build, audit, review, validate, ship. State stays on your machine, so any agent can pick up where the last one stopped."
     />
-    <link rel="canonical" href="https://skillbill.dev/" />
+    <meta name="theme-color" content="#0c0c0f" />
+    <link rel="canonical" href="https://typeshifft.com/" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Skill Bill" />
-    <meta property="og:url" content="https://skillbill.dev/" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:title" content="Skill Bill — Spec in, merge-ready PR out" />
+    <meta property="og:site_name" content="TYPE SHI*T" />
+    <meta property="og:url" content="https://typeshifft.com/" />
+    <meta property="og:title" content="TYPE SHI*T — Fast forward development" />
     <meta
       property="og:description"
-      content="Hand Skill Bill a spec and get back a merge-ready PR. Governed process for AI coding agents that runs the same way every time."
+      content="An engineering process for AI coding agents. Spec in, merge-ready pull request out. Serious engineering. Zero bullshi*t."
     />
-    <meta property="og:image" content="https://skillbill.dev/assets/og-image.png" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image" content="https://typeshifft.com/assets/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta
-      property="og:image:alt"
-      content="Skill Bill: Spec in. Merge-ready PR out."
-    />
+    <meta property="og:image:alt" content="TYPE SHI*T. Fast forward development." />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Skill Bill — Spec in, merge-ready PR out" />
-    <meta
-      name="twitter:description"
-      content="Hand Skill Bill a spec and get back a merge-ready PR. Governed process for AI coding agents that runs the same way every time."
-    />
-    <meta name="twitter:image" content="https://skillbill.dev/assets/og-image.png" />
-    <link rel="icon" href="assets/skill-bill-app-icon.svg" type="image/svg+xml" />
+    <meta name="twitter:image" content="https://typeshifft.com/assets/og-image.png" />
+    <link rel="icon" href="assets/typeshifft-mark.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&amp;family=Geist+Mono:wght@400..600&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+      <symbol id="ff" viewBox="0 0 24 16"><path d="M1 1.6v12.8c0 .8.9 1.3 1.6.8L11 8.8c.6-.4.6-1.2 0-1.6L2.6.8C1.9.3 1 .8 1 1.6Zm11 0v12.8c0 .8.9 1.3 1.6.8L22 8.8c.6-.4.6-1.2 0-1.6L13.6.8c-.7-.5-1.6 0-1.6.8Z" /></symbol>
+      <symbol id="i-check" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" /><path d="m5 8.2 2 2 4-4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      <symbol id="i-run" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 2.2" /><circle cx="8" cy="8" r="2.4" /></symbol>
+      <symbol id="i-todo" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.6" /></symbol>
+    </svg>
+
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
-      <a class="brand-mark" href="#top" aria-label="Skill Bill home">
-        <img src="assets/skill-bill-app-icon.svg" alt="" width="36" height="36" />
-        <span>Skill Bill</span>
-      </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#how">How it works</a>
-        <a href="#desktop">Desktop app</a>
-        <a href="#install">Install</a>
-        <a
-          class="nav-github"
-          href="https://github.com/oila-gmbh/skill-bill"
-          rel="noopener noreferrer"
-          target="_blank"
-          >GitHub</a
-        >
-      </nav>
+      <div class="header-inner">
+        <a class="wordmark" href="#top" aria-label="TYPE SHI*T home">TYPE SHI<span class="ast">*</span>T</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#features">Features</a>
+          <a href="#method">Method</a>
+          <a href="#manifesto">Manifesto</a>
+          <a href="https://github.com/Sermilion/typeshifft/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Docs</a>
+        </nav>
+        <div class="header-actions">
+          <a class="link-quiet" href="https://github.com/Sermilion/typeshifft" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="btn btn-light btn-sm" href="#install">Get started</a>
+        </div>
+      </div>
     </header>
 
     <main id="main">
-      <section class="hero" id="top" aria-label="Skill Bill">
-        <div class="hero-plane" aria-hidden="true">
-          <div class="hero-grid"></div>
-          <div class="hero-stripe"></div>
-          <div class="hero-stripe hero-stripe--dark"></div>
-          <div class="hero-grain"></div>
+      <!-- Hero -->
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-light" aria-hidden="true"></div>
+        <div class="wrap hero-inner">
+          <a class="pill" href="#method">
+            <svg class="ff" aria-hidden="true"><use href="#ff" /></svg>
+            <span>Fast forward development</span>
+            <span class="pill-arrow" aria-hidden="true">→</span>
+          </a>
+          <h1 id="hero-title" class="hero-title">
+            Your agent writes the code.<br />
+            We make it ship.
+          </h1>
+          <p class="hero-lede">
+            TYPE SHI<span class="ast">*</span>T holds AI coding agents to an engineering process.
+            Every feature is planned, built, audited, reviewed and validated before
+            the pull request opens. The state lives on your machine, so a crash or a
+            different agent picks up exactly where the last one stopped.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn btn-light" href="#install">Start building</a>
+            <a class="btn btn-ghost" href="#method">See the method <span aria-hidden="true">→</span></a>
+          </div>
         </div>
 
-        <div class="hero-copy">
-          <p class="hero-brand reveal">Skill Bill</p>
-          <h1 class="hero-headline reveal reveal-delay-1">
-            Spec in.<br />
-            Merge-ready PR out.
-          </h1>
-          <p class="hero-support reveal reveal-delay-2">
-            Planned, implemented, stack-specialist-reviewed, audited against the
-            spec, and quality-gated — the same way, every run.
-          </p>
-          <div class="hero-ctas reveal reveal-delay-3">
-            <a class="btn btn-primary" href="#install">Install in ~60 seconds</a>
-            <a
-              class="btn btn-ghost"
-              href="https://github.com/oila-gmbh/skill-bill"
-              rel="noopener noreferrer"
-              target="_blank"
-              >View on GitHub</a
-            >
+        <!-- Product mockup -->
+        <div class="wrap">
+          <div class="app-stage">
+            <div class="app" id="app" aria-label="Product preview: a goal running through its pipeline" role="img">
+              <aside class="app-side" aria-hidden="true">
+                <div class="app-brand">TYPE SHI<span class="ast">*</span>T</div>
+                <ul class="app-nav">
+                  <li class="is-on"><span class="dot dot--run"></span>Work <em>3</em></li>
+                  <li><span class="dot"></span>Goals</li>
+                  <li><span class="dot dot--warn"></span>Stalled <em>1</em></li>
+                  <li><span class="dot"></span>Finished</li>
+                </ul>
+                <p class="app-side-label">Repositories</p>
+                <ul class="app-nav app-nav--repos">
+                  <li><span class="sq"></span>orders-app</li>
+                  <li><span class="sq sq--b"></span>billing-api</li>
+                  <li><span class="sq sq--c"></span>field-mobile</li>
+                </ul>
+              </aside>
+
+              <div class="app-main" aria-hidden="true">
+                <div class="app-top">
+                  <span class="app-crumb">orders-app <i>/</i> ORD-142</span>
+                  <span class="app-btns"><span>Pause</span><span>Stop</span></span>
+                </div>
+                <div class="app-goal">
+                  <p class="app-goal-title">CSV export for the filtered orders list</p>
+                  <p class="app-goal-meta">
+                    <span class="chip chip--run"><svg><use href="#i-run" /></svg><b id="app-phase">validate</b></span>
+                    <span>Claude Code</span><span>·</span><span id="app-elapsed">18m 42s</span>
+                  </p>
+                  <div class="app-progress"><span id="app-bar" style="width: 66%"></span></div>
+                </div>
+                <ul class="app-rows">
+                  <li class="row row--done"><svg><use href="#i-check" /></svg><code>ORD-142.1</code><span>Streamed CSV writer for order rows</span><em>committed</em></li>
+                  <li class="row row--run" id="app-row-2"><svg><use href="#i-run" /></svg><code>ORD-142.2</code><span>Apply active filters to the export query</span><em id="app-row-2-state">validate</em></li>
+                  <li class="row row--todo" id="app-row-3"><svg><use href="#i-todo" /></svg><code>ORD-142.3</code><span>Export button and download state</span><em>queued</em></li>
+                </ul>
+                <div class="app-activity">
+                  <p class="app-side-label">Activity</p>
+                  <ul id="app-log">
+                    <li><b>audit</b> 6/6 acceptance criteria met</li>
+                    <li><b>review</b> 3 findings verified, 2 fixed, 1 rejected</li>
+                    <li><b>learning</b> saved: "keep Result types in use cases"</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="app-pipe" aria-hidden="true">
+                <p class="app-side-label">Pipeline · ORD-142.2</p>
+                <ol id="app-pipe">
+                  <li class="is-done">intake</li>
+                  <li class="is-done">plan</li>
+                  <li class="is-done">implement</li>
+                  <li class="is-done">audit</li>
+                  <li class="is-done">review</li>
+                  <li class="is-run">validate</li>
+                  <li>history</li>
+                  <li>commit</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wrap agents">
+          <p>Runs inside the agent you already use</p>
+          <ul>
+            <li>Claude Code</li>
+            <li>Codex</li>
+            <li>Cursor</li>
+            <li>Junie</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Built for serious builders -->
+      <section class="section" id="builders" aria-labelledby="builders-title">
+        <div class="wrap">
+          <div class="split-head">
+            <h2 id="builders-title">Built for serious builders</h2>
+            <p>
+              For engineers who want an agent to ship whole features and still read
+              every diff before it merges. If you want autocomplete, this is too much
+              process. If you want a process, it's the right amount.
+            </p>
+          </div>
+          <ul class="pillars">
+            <li>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="5" height="14" rx="1.5" /><rect x="12" y="3" width="5" height="14" rx="1.5" /></svg>
+              <h3>Control</h3>
+              <p>Pause, stop or resume any run. Anything that edits, tags or pushes waits for your confirmation.</p>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3" /><path d="M1.5 10S5 4 10 4s8.5 6 8.5 6-3.5 6-8.5 6-8.5-6-8.5-6Z" /></svg>
+              <h3>Transparency</h3>
+              <p>Every phase leaves a named artifact you can open. Every instruction file the agent saw is recorded by hash.</p>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7a6.5 6.5 0 0 1 12 0M16 13a6.5 6.5 0 0 1-12 0" /><path d="M16 3v4h-4M4 17v-4h4" /></svg>
+              <h3>Reproducibility</h3>
+              <p>Same pipeline, same gates, every run. Each run works from a written spec you can read before any code changes.</p>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="3" width="6" height="5" rx="1.2" /><rect x="11.5" y="12" width="6" height="5" rx="1.2" /><path d="M8.5 5.5h3a2 2 0 0 1 2 2V12" /></svg>
+              <h3>Structured workflows</h3>
+              <p>Big work splits into dependency-ordered subtasks. Each gets a fresh context and exactly one commit.</p>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M8 3h4v3a2 2 0 1 0 3 0V3h2v14H3V3h2v3a2 2 0 1 0 3 0Z" /></svg>
+              <h3>Extensibility</h3>
+              <p>Platform packs, add-ons, per-phase instructions and your own skills, all written as plain source files.</p>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 3.5 4.5v5c0 4 2.8 7 6.5 8.5 3.7-1.5 6.5-4.5 6.5-8.5v-5Z" /><path d="m7 10 2 2 4-4" /></svg>
+              <h3>Reliability</h3>
+              <p>A repair round that doesn't close gaps stops the run and says why. Failing CI gets repaired, not ignored.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Features bento -->
+      <section class="section" id="features" aria-labelledby="features-title">
+        <div class="wrap">
+          <div class="center-head">
+            <p class="eyebrow">Features</p>
+            <h2 id="features-title">Everything your agent forgets,<br />kept on record.</h2>
+          </div>
+
+          <div class="bento">
+            <article class="tile tile--wide">
+              <div class="tile-copy">
+                <h3>Continuity across sessions</h3>
+                <p>Phase outputs and progress live in a local database, not a chat window. Hit a usage limit, close the laptop, switch agents. The run continues from the last finished phase.</p>
+              </div>
+              <div class="vg vg-timeline" aria-hidden="true">
+                <div class="vg-step"><span class="vg-agent">Claude Code</span><span>implement · audit · review</span></div>
+                <div class="vg-step vg-step--cut"><span class="vg-agent">session lost</span><span>usage limit reached</span></div>
+                <div class="vg-step vg-step--go"><span class="vg-agent">Codex</span><span>resumed at validate</span></div>
+              </div>
+            </article>
+
+            <article class="tile">
+              <div class="vg vg-doc" aria-hidden="true">
+                <p class="vg-file">agent/decisions.md</p>
+                <pre><span class="c-h">## orders/export</span>
+<span class="c-k">Decision:</span> stream rows to the file
+<span class="c-k">Why:</span> exports pass 200k rows
+<span class="c-k">Rejected:</span> in-memory CSV builder</pre>
+              </div>
+              <div class="tile-copy">
+                <h3>Decision tracking</h3>
+                <p>Each subtask writes its decisions next to the code it touched. The next plan reads them first.</p>
+              </div>
+            </article>
+
+            <article class="tile">
+              <div class="vg vg-learn" aria-hidden="true">
+                <div class="vg-finding"><span class="tag tag--red">rejected</span>"Wrap the call in runCatching"</div>
+                <div class="vg-arrow">↓ you confirm</div>
+                <div class="vg-finding vg-finding--ok"><span class="tag tag--green">learning</span>Use Result types in use cases</div>
+              </div>
+              <div class="tile-copy">
+                <h3>Learning system</h3>
+                <p>Reject a review finding and confirm it, and it becomes a learning. Later reviews apply it instead of repeating the mistake.</p>
+              </div>
+            </article>
+
+            <article class="tile">
+              <div class="vg vg-doc" aria-hidden="true">
+                <p class="vg-file">config.json</p>
+                <pre>{
+  <span class="c-k">"review"</span>: { <span class="c-k">"model"</span>: <span class="c-s">"opus"</span>, <span class="c-k">"effort"</span>: <span class="c-s">"high"</span> },
+  <span class="c-k">"implement"</span>: { <span class="c-k">"model"</span>: <span class="c-s">"sonnet"</span> }
+}</pre>
+              </div>
+              <div class="tile-copy">
+                <h3>Overrides and configuration</h3>
+                <p>Choose the model and effort per phase. Add a markdown file to give one phase your team's rules.</p>
+              </div>
+            </article>
+
+            <article class="tile">
+              <div class="vg vg-packs" aria-hidden="true">
+                <span>Go</span><span>iOS</span><span>Kotlin</span><span>KMP</span><span>PHP</span><span>Python</span><span>Rust</span><span>TypeScript</span><span class="vg-pack-new">+ your pack</span>
+              </div>
+              <div class="tile-copy">
+                <h3>Modular architecture</h3>
+                <p>Platform packs declare their routing, review areas, checks and QA. Add one without touching a hard-coded list.</p>
+              </div>
+            </article>
+
+            <article class="tile">
+              <div class="vg vg-seg" aria-hidden="true">
+                <div class="seg"><span class="is-on">anonymous</span><span>full</span><span>off</span></div>
+                <p>Every field documented. Relay can be self-hosted.</p>
+              </div>
+              <div class="tile-copy">
+                <h3>Telemetry you can audit</h3>
+                <p>Pick the level at install and change it with one command. Workflow state never leaves your machine.</p>
+              </div>
+            </article>
+
+            <article class="tile tile--wide tile--accent">
+              <div class="tile-copy">
+                <h3>Local-first. Developer-controlled.</h3>
+                <p>The runtime, your specs and every run's history stay on your disk. It uses your agent CLI, your credentials and your repository. There's no account to create and no server you depend on.</p>
+              </div>
+              <div class="vg vg-tree" aria-hidden="true">
+                <pre><span class="c-h">~/.typeshifft/</span>
+├── runtime/
+├── projects/<span class="c-d">&lt;project-id&gt;</span>/
+│   └── phases/review.md
+└── state.db   <span class="c-d"># every run, every phase</span></pre>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section problem" aria-labelledby="problem-title">
-        <div class="section-inner">
-          <h2 id="problem-title">Agents are strong. Process is what they lack.</h2>
-          <p>
-            The same prompt yields different work every run. Sometimes it reviews
-            thoroughly, sometimes it skims. Sometimes it follows your conventions,
-            sometimes it invents new ones. Skill Bill gives yours the structure of a
-            real engineering process and holds it to that process across whichever
-            agents you use.
-          </p>
+      <!-- Method -->
+      <section class="section method" id="method" aria-labelledby="method-title">
+        <div class="wrap">
+          <div class="center-head">
+            <p class="eyebrow">The method</p>
+            <h2 id="method-title">One governed path from spec to merge.</h2>
+            <p class="lede">Agents do the work. The runtime decides the order, runs the gates and keeps the record. Pick a stage to see what it reads and writes.</p>
+          </div>
+
+          <div class="method-grid" id="method-grid">
+            <div class="stages" role="tablist" aria-label="Pipeline stages" aria-orientation="vertical">
+              <button class="stage" role="tab" id="tab-spec" aria-selected="true" aria-controls="method-panel" data-stage="spec" data-uses="state spec cli">
+                <span class="stage-n">01</span><span class="stage-t">Spec</span><span class="stage-d">Issue to acceptance criteria</span><span class="stage-bar"></span>
+              </button>
+              <button class="stage" role="tab" id="tab-plan" aria-selected="false" tabindex="-1" aria-controls="method-panel" data-stage="plan" data-uses="state spec history decisions mcp">
+                <span class="stage-n">02</span><span class="stage-t">Plan</span><span class="stage-d">Context, then subtasks</span><span class="stage-bar"></span>
+              </button>
+              <button class="stage" role="tab" id="tab-execute" aria-selected="false" tabindex="-1" aria-controls="method-panel" data-stage="execute" data-uses="state spec packs mcp">
+                <span class="stage-n">03</span><span class="stage-t">Execute</span><span class="stage-d">Implement and audit</span><span class="stage-bar"></span>
+              </button>
+              <button class="stage" role="tab" id="tab-review" aria-selected="false" tabindex="-1" aria-controls="method-panel" data-stage="review" data-uses="state learnings packs mcp">
+                <span class="stage-n">04</span><span class="stage-t">Review</span><span class="stage-d">Specialists and real checks</span><span class="stage-bar"></span>
+              </button>
+              <button class="stage" role="tab" id="tab-finalise" aria-selected="false" tabindex="-1" aria-controls="method-panel" data-stage="finalise" data-uses="state history decisions cli">
+                <span class="stage-n">05</span><span class="stage-t">Finalise</span><span class="stage-d">Record, commit, ship</span><span class="stage-bar"></span>
+              </button>
+            </div>
+
+            <div class="panel" id="method-panel" role="tabpanel" aria-labelledby="tab-spec">
+              <div class="panel-agents">
+                <span class="panel-label">Agents</span>
+                <span class="agent">Claude Code</span><span class="agent">Codex</span><span class="agent">Cursor</span><span class="agent">Junie</span>
+              </div>
+              <div class="panel-core">
+                <p class="panel-title" id="panel-title">Spec</p>
+                <p class="panel-text" id="panel-text">Intake turns an issue and its acceptance criteria into a spec bundle kept on your machine, outside version control. No issue key? It takes the next free one.</p>
+                <p class="panel-out">writes <code id="panel-out">spec.md</code></p>
+              </div>
+              <div class="panel-runtime"><svg class="ff" aria-hidden="true"><use href="#ff" /></svg><b>Runtime</b><span>durable state at every phase boundary</span></div>
+              <div class="panel-layers">
+                <div>
+                  <p class="panel-label">Memory</p>
+                  <ul>
+                    <li data-node="state">Run state</li>
+                    <li data-node="spec">Spec bundle</li>
+                    <li data-node="learnings">Learnings</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="panel-label">Decisions</p>
+                  <ul>
+                    <li data-node="history">history.md</li>
+                    <li data-node="decisions">decisions.md</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="panel-label">Tools</p>
+                  <ul>
+                    <li data-node="cli">CLI</li>
+                    <li data-node="mcp">MCP server</li>
+                    <li data-node="packs">Platform packs</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="section pipeline" id="how" aria-labelledby="pipeline-title">
-        <div class="section-inner">
-          <h2 id="pipeline-title">One governed path from spec to PR</h2>
-          <p class="section-lede">
-            `/bill-feature` carries the work through every phase. If a run is
-            interrupted mid-flight, it resumes from durable workflow state — nothing
-            lost.
-          </p>
-
-          <ol class="phase-rail" aria-label="Feature pipeline phases">
-            <li class="phase">
-              <span class="phase-index">01</span>
-              <span class="phase-name">Plan</span>
+      <!-- Manifesto -->
+      <section class="section manifesto" id="manifesto" aria-labelledby="manifesto-title">
+        <div class="wrap">
+          <p class="eyebrow" id="manifesto-title">Manifesto</p>
+          <ol class="manifesto-list">
+            <li class="m-item">
+              <p class="m-line">No vendor lock-in.</p>
+              <p class="m-note">Four agents, one runtime. Switch halfway through a run.</p>
             </li>
-            <li class="phase">
-              <span class="phase-index">02</span>
-              <span class="phase-name">Implement</span>
+            <li class="m-item">
+              <p class="m-line">No disposable context.</p>
+              <p class="m-note">State lives on disk, not in a chat window.</p>
             </li>
-            <li class="phase">
-              <span class="phase-index">03</span>
-              <span class="phase-name">Review</span>
+            <li class="m-item">
+              <p class="m-line">No chaos disguised as intelligence.</p>
+              <p class="m-note">Every phase has a contract, a gate and an artifact.</p>
             </li>
-            <li class="phase">
-              <span class="phase-index">04</span>
-              <span class="phase-name">Audit</span>
-            </li>
-            <li class="phase">
-              <span class="phase-index">05</span>
-              <span class="phase-name">Quality gate</span>
-            </li>
-            <li class="phase phase--end">
-              <span class="phase-index">06</span>
-              <span class="phase-name">Merge-ready PR</span>
+            <li class="m-item m-item--final">
+              <p class="m-line">Serious engineering.<br />Zero bullshi<span class="ast">*</span>t.</p>
             </li>
           </ol>
         </div>
       </section>
 
-      <section class="section demo" aria-labelledby="demo-title">
-        <div class="section-inner">
-          <h2 id="demo-title">Interrupted mid-flight. Still finishes.</h2>
-          <p class="section-lede">
-            A `/bill-feature` run that hits a usage limit, crash, or lost connection,
-            then resumes from durable state and completes. Generated demo, not a
-            hand recording — so it stays current with the product.
-          </p>
-          <figure class="demo-frame">
-            <img
-              src="assets/skill-bill-demo.gif"
-              width="1200"
-              height="675"
-              alt="Skill Bill demo: a bill-feature run interrupted mid-flight, then resumed from durable workflow state until it finishes"
-              loading="lazy"
-            />
-          </figure>
-        </div>
-      </section>
+      <!-- CTA -->
+      <section class="section cta" id="install" aria-labelledby="cta-title">
+        <div class="cta-light" aria-hidden="true"></div>
+        <div class="wrap cta-inner">
+          <svg class="ff ff--big" aria-hidden="true"><use href="#ff" /></svg>
+          <h2 id="cta-title">Fast forward development.</h2>
+          <p class="lede">One command installs the runtime, the desktop app and the skill for every agent you choose. Checksum-verified. No JDK, no build tools.</p>
 
-      <section class="section get" aria-labelledby="get-title">
-        <div class="section-inner">
-          <h2 id="get-title">What holds it together</h2>
-          <ul class="get-list">
-            <li>
-              <h3>Works with every supported agent</h3>
-              <p>
-                One install detects and wires Claude Code, Codex, Cursor, and
-                Junie. Pick the agents you use; Skill Bill lands in each of them
-                the same way.
-              </p>
-            </li>
-            <li>
-              <h3>CLI and MCP included</h3>
-              <p>
-                The installer places the <code>skill-bill</code> CLI and
-                <code>skill-bill-mcp</code> server, then registers them so your
-                agents can drive the same governed feature runs.
-              </p>
-            </li>
-            <li>
-              <h3>Durable, resumable state</h3>
-              <p>
-                Long multi-phase runs survive crashes and context compaction. Resume
-                is agent-independent: pause under Claude Code, continue under Codex.
-              </p>
-            </li>
-            <li>
-              <h3>Stack-specialist packs</h3>
-              <p>
-                Go, iOS, Kotlin/KMP, PHP, Python, Rust, and TypeScript packs review
-                and check code the way someone who knows that stack would.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section desktop" id="desktop" aria-labelledby="desktop-title">
-        <div class="section-inner">
-          <h2 id="desktop-title">Skill Bill on your desktop</h2>
-          <p class="section-lede">
-            Follow goal runs and standalone phases across repositories. Check
-            subtask progress, see which runs need your attention, and pause or
-            stop a goal from one window.
-          </p>
-
-          <p class="desktop-install">Included with the Skill Bill installer.</p>
-
-          <div class="desktop-gallery">
-            <figure class="desktop-frame desktop-frame--primary">
-              <a
-                class="desktop-screenshot"
-                href="assets/skill-bill-desktop-goal.png"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open the full-size Skill Bill goal progress screenshot in a new tab"
-              >
-                <img
-                  src="assets/skill-bill-desktop-goal.png"
-                  width="2278"
-                  height="1478"
-                  alt="Skill Bill desktop app showing an active goal, subtask progress, phase pipeline, and pause and cancel controls"
-                  loading="lazy"
-                />
-              </a>
-              <figcaption>
-                Follow an active goal through its subtasks and phase pipeline.
-                Select the screenshot to view it full size.
-              </figcaption>
-            </figure>
-            <figure class="desktop-frame">
-              <a
-                class="desktop-screenshot"
-                href="assets/skill-bill-desktop-work.png"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open the full-size Skill Bill work list screenshot in a new tab"
-              >
-                <img
-                  src="assets/skill-bill-desktop-work.png"
-                  width="2278"
-                  height="1478"
-                  alt="Skill Bill desktop app work list showing an active goal and finished runs across repositories"
-                  loading="lazy"
-                />
-              </a>
-              <figcaption>
-                See active goals and finished runs across repositories.
-                Select the screenshot to view it full size.
-              </figcaption>
-            </figure>
-            <figure class="desktop-frame">
-              <a
-                class="desktop-screenshot"
-                href="assets/skill-bill-desktop-details.png"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open the full-size Skill Bill subtask details screenshot in a new tab"
-              >
-                <img
-                  src="assets/skill-bill-desktop-details.png"
-                  width="2278"
-                  height="1478"
-                  alt="Skill Bill desktop app with the subtask details panel showing dependencies, review findings, audit status, and execution information"
-                  loading="lazy"
-                />
-              </a>
-              <figcaption>
-                Inspect subtask dependencies, review findings, and execution details.
-                Select the screenshot to view it full size.
-              </figcaption>
-            </figure>
+          <div class="install" role="group" aria-label="Install command">
+            <pre><code id="install-cmd">curl -fsSL https://raw.githubusercontent.com/oila-gmbh/typeshifft/main/install.sh | bash</code></pre>
+            <button type="button" class="btn btn-light btn-sm" id="copy-install" data-copy="#install-cmd">Copy</button>
           </div>
-        </div>
-      </section>
+          <p class="install-note">macOS, Linux and Windows. Pre-1.0, and we ship our own features through this pipeline.</p>
+          <p class="install-note">Prefer to read the script first? <a href="https://raw.githubusercontent.com/oila-gmbh/typeshifft/main/install.sh" target="_blank" rel="noopener noreferrer">Open install.sh</a>, then run it locally.</p>
 
-      <section class="section install" id="install" aria-labelledby="install-title">
-        <div class="section-inner">
-          <h2 id="install-title">Install in about a minute</h2>
-          <p class="section-lede">
-            Installs the desktop app and checksum-verifies the prebuilt runtime
-            for your OS. No clone, no JDK, no Gradle. Needs `curl`, `tar`, `unzip`, and
-            `shasum`/`sha256sum` on macos-arm64, macos-x64, windows-x64, or
-            linux-x64.
-          </p>
-
-          <div class="install-panel" role="group" aria-label="Install command">
-            <pre class="install-code"><code id="install-cmd">curl -fsSL https://raw.githubusercontent.com/oila-gmbh/skill-bill/main/install.sh | bash</code></pre>
-            <button type="button" class="btn btn-primary" id="copy-install" data-copy="#install-cmd">
-              Copy command
-            </button>
+          <div class="cta-actions">
+            <a class="btn btn-light" href="https://github.com/Sermilion/typeshifft/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Read the docs</a>
+            <a class="btn btn-ghost" href="#method">Explore the architecture</a>
+            <a class="btn btn-ghost" href="https://github.com/Sermilion/typeshifft" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
           </div>
-
-          <p class="install-note">
-            Prefer to read the script first?
-            <a
-              href="https://raw.githubusercontent.com/oila-gmbh/skill-bill/main/install.sh"
-              rel="noopener noreferrer"
-              target="_blank"
-              >Open install.sh</a
-            >, then run it locally.
-          </p>
-
-          <pre class="follow-up"><code>skill-bill version
-skill-bill doctor
-skill-bill update-check</code></pre>
-        </div>
-      </section>
-
-      <section class="section projects" id="projects" aria-labelledby="projects-title">
-        <div class="section-inner">
-          <h2 id="projects-title">Other projects</h2>
-          <p class="section-lede">More from the same maker.</p>
-          <ul class="project-list">
-            <li>
-              <a
-                href="https://0account.com"
-                rel="noopener noreferrer"
-                target="_blank"
-                >0account.com</a
-              >
-              <p>Passwordless account management and remote control for your online presence.</p>
-            </li>
-            <li>
-              <a
-                href="https://readian.news"
-                rel="noopener noreferrer"
-                target="_blank"
-                >readian.news</a
-              >
-              <p>A news reader that lets you follow sites and topics you choose.</p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section audience" aria-labelledby="audience-title">
-        <div class="section-inner">
-          <h2 id="audience-title">Who this is for</h2>
-          <p>
-            Developers and teams who want an AI agent to implement whole features
-            with the rigor of a real engineering process — planned, reviewed,
-            audited, and quality-gated — instead of one-off code they have to
-            babysit. You still review the final PR; what reaches you was already
-            checked. Overkill if you only want quick single-file completions.
-            Pre-1.0, built and maintained by a small team. Skill Bill ships its own
-            features through this pipeline.
-          </p>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="footer-inner">
+      <div class="wrap footer-inner">
         <div class="footer-brand">
-          <img src="assets/skill-bill-app-icon.svg" alt="" width="28" height="28" />
-          <span>Skill Bill</span>
+          <p class="wordmark">TYPE SHI<span class="ast">*</span>T</p>
+          <p class="footer-domain">typeshi<span class="ast">ff</span>t.com</p>
+          <p class="footer-tag"><svg class="ff" aria-hidden="true"><use href="#ff" /></svg>Fast forward development.</p>
         </div>
-        <div class="footer-links">
-          <a
-            href="https://github.com/oila-gmbh/skill-bill"
-            rel="noopener noreferrer"
-            target="_blank"
-            >GitHub</a
-          >
-          <a
-            href="https://github.com/oila-gmbh/skill-bill/blob/main/docs/getting-started.md"
-            rel="noopener noreferrer"
-            target="_blank"
-            >Getting started</a
-          >
-          <a href="#desktop">Desktop app</a>
-          <a
-            href="https://github.com/oila-gmbh/skill-bill/blob/main/LICENSE"
-            rel="noopener noreferrer"
-            target="_blank"
-            >License</a
-          >
-        </div>
-        <p class="footer-meta">
-          Skill Bill Use License. Commercial use allowed before the stable v1.0.0
-          event; see the repo for terms.
-        </p>
+        <nav class="footer-cols" aria-label="Footer">
+          <div>
+            <p>Product</p>
+            <a href="#features">Features</a>
+            <a href="#method">Method</a>
+            <a href="#manifesto">Manifesto</a>
+          </div>
+          <div>
+            <p>Resources</p>
+            <a href="https://github.com/Sermilion/typeshifft/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Docs</a>
+            <a href="https://github.com/Sermilion/typeshifft" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://github.com/Sermilion/typeshifft/blob/main/docs/telemetry-privacy.md" target="_blank" rel="noopener noreferrer">Telemetry privacy</a>
+          </div>
+          <div>
+            <p>Legal</p>
+            <a href="https://github.com/Sermilion/typeshifft/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT license</a>
+          </div>
+        </nav>
+      </div>
+      <div class="wrap footer-base">
+        <p>Serious engineering. Zero bullshi<span class="ast">*</span>t.</p>
       </div>
     </footer>
 

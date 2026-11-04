@@ -1,6 +1,8 @@
-# Skill Bill web
+# typeshifft
 
-Marketing landing page for [Skill Bill](https://github.com/oila-gmbh/skill-bill).
+Marketing landing page for TYPE SHI*T at [typeshifft.com](https://typeshifft.com/).
+
+Repository: [Sermilion/typeshifft](https://github.com/Sermilion/typeshifft).
 
 Static HTML/CSS/JS. No build step.
 
@@ -16,11 +18,11 @@ Open http://127.0.0.1:8765/
 
 | Path | Role |
 |------|------|
-| `index.html` | Page structure and copy |
+| `index.html` | Page structure, product mockups, and copy |
 | `styles.css` | Layout and brand styles |
-| `main.js` | Install-command copy button |
-| `assets/` | Icon, demo GIF, desktop app screenshots, hero art, Open Graph image |
+| `main.js` | Page interactions and install-command copy button |
+| `assets/typeshifft-mark.svg` | Brand mark and favicon |
+| `assets/og-image.png` | Social sharing image |
+| `CNAME` | GitHub Pages custom domain |
 
-Demo GIF and brand assets are sourced from the Skill Bill repo (`docs/assets/`). Regenerate the GIF there with `python3 docs/assets/generate_demo_gif.py`, then copy into `assets/` here.
-
-Desktop app screenshots are stored as `assets/skill-bill-desktop-{goal,work,details}.png`.
+Product documentation links use `Sermilion/typeshifft`. The installer URL uses `oila-gmbh/typeshifft`. Publish the documentation and installer at those paths before deploying the site.
