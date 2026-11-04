@@ -141,6 +141,7 @@
     let selectedStage = 0;
     let autoTimer = null;
     let manuallySelected = false;
+    let focusWithin = false;
 
     const select = (i, focus = false) => {
       const tab = tabs[i];
@@ -166,7 +167,7 @@
     };
 
     const startAutoCycle = () => {
-      if (autoTimer !== null || manuallySelected || motionPreference.matches) return;
+      if (autoTimer !== null || manuallySelected || focusWithin || motionPreference.matches) return;
       autoTimer = window.setInterval(() => {
         select((selectedStage + 1) % tabs.length);
       }, 3000);
@@ -191,6 +192,16 @@
         e.preventDefault();
         chooseStage(next, true);
       });
+    });
+
+    grid.addEventListener("focusin", () => {
+      focusWithin = true;
+      stopAutoCycle();
+    });
+    grid.addEventListener("focusout", (event) => {
+      if (grid.contains(event.relatedTarget)) return;
+      focusWithin = false;
+      startAutoCycle();
     });
 
     select(0);
