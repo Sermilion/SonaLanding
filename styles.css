@@ -583,6 +583,13 @@ h3 {
 .row--run svg {
   color: var(--accent);
   fill: var(--accent);
+  animation: spin 2.4s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .app-progress {
@@ -1135,6 +1142,25 @@ h3 {
 .stage-d {
   font-size: 0.86rem;
   color: var(--faint);
+}
+
+.stage-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+}
+
+.stage[aria-selected="true"] .stage-bar.is-timing {
+  animation: timing var(--cycle, 4200ms) linear forwards;
+}
+
+@keyframes timing {
+  to {
+    width: 100%;
+  }
 }
 
 .panel {
