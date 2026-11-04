@@ -1,5 +1,6 @@
 (() => {
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const reduceMotion = motionPreference.matches;
   const canObserve = "IntersectionObserver" in window;
 
   /* ---------- Reveal: only what starts below the fold animates in ---------- */
@@ -137,9 +138,13 @@
     const title = document.getElementById("panel-title");
     const text = document.getElementById("panel-text");
     const out = document.getElementById("panel-out");
+    let selectedStage = 0;
+    let autoTimer = null;
+    let manuallySelected = false;
 
     const select = (i, focus = false) => {
       const tab = tabs[i];
+      selectedStage = i;
       const uses = (tab.dataset.uses || "").split(/\s+/);
       tabs.forEach((t, j) => {
         t.setAttribute("aria-selected", String(j === i));
@@ -154,9 +159,28 @@
       if (focus) tab.focus();
     };
 
+    const stopAutoCycle = () => {
+      if (autoTimer === null) return;
+      window.clearInterval(autoTimer);
+      autoTimer = null;
+    };
+
+    const startAutoCycle = () => {
+      if (autoTimer !== null || manuallySelected || motionPreference.matches) return;
+      autoTimer = window.setInterval(() => {
+        select((selectedStage + 1) % tabs.length);
+      }, 3000);
+    };
+
+    const chooseStage = (i, focus = false) => {
+      manuallySelected = true;
+      stopAutoCycle();
+      select(i, focus);
+    };
+
     tabs.forEach((tab, i) => {
       tab.addEventListener("click", () => {
-        select(i);
+        chooseStage(i);
       });
       tab.addEventListener("keydown", (e) => {
         const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
@@ -165,11 +189,16 @@
         if (e.key === "End") next = tabs.length - 1;
         if (next === null) return;
         e.preventDefault();
-        select(next, true);
+        chooseStage(next, true);
       });
     });
 
     select(0);
+    startAutoCycle();
+    motionPreference.addEventListener("change", (event) => {
+      if (event.matches) stopAutoCycle();
+      else startAutoCycle();
+    });
   }
 
   /* ---------- Install copy ---------- */
