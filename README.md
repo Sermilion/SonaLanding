@@ -18,12 +18,13 @@ Open http://127.0.0.1:8765/
 
 | Path | Role |
 |------|------|
-| `index.html` | Page structure, product mockups, and copy |
-| `styles.css` | Layout and brand styles |
-| `main.js` | Page interactions and install-command copy button |
-| `assets/sona-mark.svg` | Brand mark and favicon |
+| `index.html` | Page structure, the HTML app preview, and copy |
+| `styles.css` | Design tokens (from the Sona desktop design system), layout and components |
+| `main.js` | Install-command copy buttons and the animated app preview |
+| `assets/sona-mark.svg` | Ping mark on a dark tile, used as the favicon |
 | `assets/og-image.png` | Social sharing image |
 | `CNAME` | GitHub Pages custom domain |
+| `design/landing.html` | Standalone design prototype the live page was ported from |
 
 ## External links
 
@@ -34,7 +35,7 @@ The page links to these files in the product repository. Keep them in sync if th
 | Install command | `https://raw.githubusercontent.com/Sermilion/SonaADE/main/install.sh` |
 | Docs | `https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md` |
 | Telemetry privacy | `https://github.com/Sermilion/SonaADE/blob/main/docs/telemetry-privacy.md` |
-| License | `https://github.com/Sermilion/SonaADE/blob/main/LICENSE` |
+| GitHub | `https://github.com/Sermilion/SonaADE` |
 
 ## Deployment
 

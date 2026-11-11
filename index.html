@@ -6,9 +6,9 @@
     <title>Sona — Agentic development environment</title>
     <meta
       name="description"
-      content="Sona is an agentic development environment. It holds your AI coding agent to an engineering process: plan, build, audit, review, validate, ship. State stays on your machine, so any agent can pick up where the last one stopped."
+      content="Sona is an agentic development environment. It runs your coding agent through one pipeline: spec, plan, implement, audit, review, validate, pull request. Every run is stored on your machine, so work resumes after a crash, a usage limit or a change of agent."
     />
-    <meta name="theme-color" content="#0c0c0f" />
+    <meta name="theme-color" content="#0B0B0D" />
     <link rel="canonical" href="https://sona-ade.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Sona" />
@@ -16,142 +16,174 @@
     <meta property="og:title" content="Sona — Agentic development environment" />
     <meta
       property="og:description"
-      content="An engineering process for AI coding agents. Spec in, merge-ready pull request out. Serious engineering. Zero bullshi*t."
+      content="The development environment for coding agents. One pipeline from spec to pull request, with every run kept on your machine."
     />
     <meta property="og:image" content="https://sona-ade.com/assets/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Sona. Agentic development environment." />
+    <meta property="og:image:alt" content="Sona. The development environment for coding agents." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://sona-ade.com/assets/og-image.png" />
     <link rel="icon" href="assets/sona-mark.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&amp;family=Geist+Mono:wght@400..600&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
-      <symbol id="ff" viewBox="0 0 24 16"><path d="M1 1.6v12.8c0 .8.9 1.3 1.6.8L11 8.8c.6-.4.6-1.2 0-1.6L2.6.8C1.9.3 1 .8 1 1.6Zm11 0v12.8c0 .8.9 1.3 1.6.8L22 8.8c.6-.4.6-1.2 0-1.6L13.6.8c-.7-.5-1.6 0-1.6.8Z" /></symbol>
-      <symbol id="i-check" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" /><path d="m5 8.2 2 2 4-4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></symbol>
-      <symbol id="i-run" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 2.2" /><circle cx="8" cy="8" r="2.4" /></symbol>
-      <symbol id="i-todo" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.6" /></symbol>
-    </svg>
+<body>
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <clipPath id="ping-clip"><circle cx="50" cy="50" r="44" /></clipPath>
+    </defs>
+    <symbol id="ping" viewBox="0 0 100 100">
+      <g clip-path="url(#ping-clip)" fill="none" stroke="currentColor">
+        <circle cx="18.9" cy="81.1" r="13" stroke-width="26" />
+        <circle cx="18.9" cy="81.1" r="47" stroke-width="22" />
+        <circle cx="18.9" cy="81.1" r="80" stroke-width="22" />
+      </g>
+    </symbol>
+    <symbol id="s-done" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="currentColor" /><path d="m5 8.2 2 2 4-4.2" fill="none" stroke="#111114" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+    <symbol id="s-run" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.6" /><path d="M8 3.6a4.4 4.4 0 0 1 0 8.8Z" fill="currentColor" /></symbol>
+    <symbol id="s-todo" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.5" /></symbol>
+    <symbol id="s-warn" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="currentColor" /><path d="M8 4.5v4.2M8 11v.2" stroke="#111114" stroke-width="1.7" stroke-linecap="round" /></symbol>
+    <symbol id="i-work" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.4" /><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.4" /></symbol>
+    <symbol id="i-history" viewBox="0 0 16 16"><path d="M2.5 8a5.5 5.5 0 1 0 1.6-3.9M2.5 2.8v2.6h2.6M8 5v3.2l2 1.3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+    <symbol id="i-spec" viewBox="0 0 16 16"><path d="M4 1.8h5.2L12 4.6v9.6H4Z M9 1.8v3h3M6 8h4M6 10.6h4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" /></symbol>
+    <symbol id="i-term" viewBox="0 0 16 16"><path d="m3 4.5 3.5 3.5L3 11.5M8.5 12H13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+    <symbol id="i-settings" viewBox="0 0 16 16"><path d="M2.5 4.5h6M11.5 4.5h2M2.5 11.5h2M7.5 11.5h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /><circle cx="10" cy="4.5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.4" /><circle cx="6" cy="11.5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.4" /></symbol>
+    <symbol id="i-search" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.4" /><path d="m10.4 10.4 3.1 3.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></symbol>
+    <symbol id="i-folder" viewBox="0 0 16 16"><path d="M1.8 4.2c0-.6.4-1 1-1h3.4l1.4 1.6h5.6c.6 0 1 .4 1 1v6.8c0 .6-.4 1-1 1H2.8c-.6 0-1-.4-1-1Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" /></symbol>
+    <symbol id="i-branch" viewBox="0 0 16 16"><circle cx="4.5" cy="3.5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.3" /><circle cx="4.5" cy="12.5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.3" /><circle cx="11.5" cy="5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.3" /><path d="M4.5 5.1v5.8M11.5 6.6c0 3-7 2.2-7 4.3" fill="none" stroke="currentColor" stroke-width="1.3" /></symbol>
+    <symbol id="i-pause" viewBox="0 0 16 16"><path d="M5.5 3.5v9M10.5 3.5v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></symbol>
+    <symbol id="i-stop" viewBox="0 0 16 16"><rect x="3.5" y="3.5" width="9" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4" /></symbol>
+    <symbol id="i-x" viewBox="0 0 16 16"><path d="m4 4 8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></symbol>
+    <symbol id="i-check" viewBox="0 0 16 16"><path d="m3.5 8.3 3 3 6-6.3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+    <symbol id="i-eye" viewBox="0 0 16 16"><path d="M1.5 8S4 3.5 8 3.5 14.5 8 14.5 8 12 12.5 8 12.5 1.5 8 1.5 8Z" fill="none" stroke="currentColor" stroke-width="1.3" /><circle cx="8" cy="8" r="2" fill="none" stroke="currentColor" stroke-width="1.3" /></symbol>
+    <symbol id="i-comment" viewBox="0 0 16 16"><path d="M2.5 3.5h11v7.5H7l-3 2.5V11H2.5Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" /></symbol>
+  </svg>
 
-    <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="wordmark" href="#top" aria-label="Sona home">Sona</a>
-        <nav class="site-nav" aria-label="Primary">
-          <a href="#features">Features</a>
-          <a href="#method">Method</a>
-          <a href="#manifesto">Manifesto</a>
-          <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Docs</a>
-        </nav>
-        <div class="header-actions">
-          <a class="link-quiet" href="https://github.com/Sermilion/SonaADE" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a class="btn btn-light btn-sm" href="#install">Get started</a>
-        </div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Sona home">
+        <svg class="mark" width="20" height="20" aria-hidden="true"><use href="#ping" /></svg>
+        Sona
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#pipeline">Pipeline</a>
+        <a href="#control">Control</a>
+        <a href="#continuity">Continuity</a>
+        <a href="#local">Local-first</a>
+        <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Docs</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-quiet btn-sm" href="https://github.com/Sermilion/SonaADE" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn btn-secondary btn-sm" href="#install">Install</a>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main id="main">
-      <!-- Hero -->
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="hero-light" aria-hidden="true"></div>
-        <div class="wrap hero-inner">
-          <a class="pill" href="#method">
-            <svg class="ff" aria-hidden="true"><use href="#ff" /></svg>
-            <span>Fast forward development</span>
-            <span class="pill-arrow" aria-hidden="true">→</span>
-          </a>
-          <h1 id="hero-title" class="hero-title">
-            Your agent writes the code.<br />
-            We make it ship.
-          </h1>
-          <p class="hero-lede">
-            Sona is an agentic development environment that holds AI coding agents to an engineering process.
-            Every feature is planned, built, audited, reviewed and validated before
-            the pull request opens. The state lives on your machine, so a crash or a
-            different agent picks up exactly where the last one stopped.
-          </p>
-          <div class="hero-ctas">
-            <a class="btn btn-light" href="#install">Start building</a>
-            <a class="btn btn-ghost" href="#method">See the method <span aria-hidden="true">→</span></a>
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <p class="label"><span class="tick" aria-hidden="true"></span>Agentic development environment</p>
+        <h1 id="hero-title" class="hero-title">The development environment for coding agents.</h1>
+        <p class="hero-lede">
+          Sona runs your coding agent through one pipeline: spec, plan, implement, audit, review, validate, pull request.
+          You decide what starts and what leaves your machine. Every run is stored locally, so work resumes after a crash, a usage limit or a change of agent.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#install">Install Sona</a>
+          <div class="cmd" role="group" aria-label="Install command">
+            <span class="prompt" aria-hidden="true">$</span>
+            <code>curl -fsSL …/SonaADE/main/install.sh | bash</code>
+            <button type="button" class="copy" data-copy="install-cmd">Copy</button>
           </div>
         </div>
+      </div>
 
-        <!-- Product mockup -->
-        <div class="wrap">
-          <div class="app-stage">
-            <div class="app" id="app" aria-label="Product preview: a goal running through its pipeline" role="img">
-              <aside class="app-side" aria-hidden="true">
-                <div class="app-brand">Sona</div>
-                <ul class="app-nav">
-                  <li class="is-on"><span class="dot dot--run"></span>Work <em>3</em></li>
-                  <li><span class="dot"></span>Goals</li>
-                  <li><span class="dot dot--warn"></span>Stalled <em>1</em></li>
-                  <li><span class="dot"></span>Finished</li>
-                </ul>
-                <p class="app-side-label">Repositories</p>
-                <ul class="app-nav app-nav--repos">
-                  <li><span class="sq"></span>orders-app</li>
-                  <li><span class="sq sq--b"></span>billing-api</li>
-                  <li><span class="sq sq--c"></span>field-mobile</li>
-                </ul>
-              </aside>
+      <div class="wrap">
+        <div class="stage">
+          <div class="app" role="img" aria-label="The Sona desktop app showing a goal run. Subtask 2 of 3 is in progress and the phase pipeline is in its review stages.">
+            <aside class="app-side" aria-hidden="true">
+              <div class="app-brand">
+                <svg class="mark" width="18" height="18"><use href="#ping" /></svg>Sona
+                <svg class="search" width="15" height="15"><use href="#i-search" /></svg>
+              </div>
+              <div class="nav-item is-on"><svg width="15" height="15"><use href="#i-work" /></svg>Work<em>3</em></div>
+              <div class="nav-item"><svg width="15" height="15"><use href="#i-history" /></svg>History</div>
+              <p class="nav-group">Board</p>
+              <div class="nav-item"><svg class="si si--warn"><use href="#s-warn" /></svg>Needs you<em>1</em></div>
+              <div class="nav-item"><svg class="si si--run"><use href="#s-run" /></svg>Goal runs<em>2</em></div>
+              <div class="nav-item"><svg class="si si--run"><use href="#s-run" /></svg>Standalone phases<em>0</em></div>
+              <div class="nav-item"><svg class="si si--run"><use href="#s-run" /></svg>Operations<em>0</em></div>
+              <div class="nav-item"><svg class="si si--done"><use href="#s-done" /></svg>Finished today<em>7</em></div>
+              <div class="nav-spacer"></div>
+              <div class="nav-item"><svg width="15" height="15"><use href="#i-spec" /></svg>Specs</div>
+              <div class="nav-item"><svg width="15" height="15"><use href="#i-term" /></svg>Terminal</div>
+              <div class="nav-item"><svg width="15" height="15"><use href="#i-settings" /></svg>Settings</div>
+            </aside>
 
-              <div class="app-main" aria-hidden="true">
-                <div class="app-top">
-                  <span class="app-crumb">orders-app <i>/</i> ORD-142</span>
-                  <span class="app-btns"><span>Pause</span><span>Stop</span></span>
-                </div>
-                <div class="app-goal">
-                  <p class="app-goal-title">CSV export for the filtered orders list</p>
-                  <p class="app-goal-meta">
-                    <span class="chip chip--run"><svg><use href="#i-run" /></svg><b id="app-phase">validate</b></span>
-                    <span>Claude Code</span><span>·</span><span id="app-elapsed">18m 42s</span>
-                  </p>
-                  <div class="app-progress"><span id="app-bar" style="width: 66%"></span></div>
-                </div>
-                <ul class="app-rows">
-                  <li class="row row--done"><svg><use href="#i-check" /></svg><code>ORD-142.1</code><span>Streamed CSV writer for order rows</span><em>committed</em></li>
-                  <li class="row row--run" id="app-row-2"><svg><use href="#i-run" /></svg><code>ORD-142.2</code><span>Apply active filters to the export query</span><em id="app-row-2-state">validate</em></li>
-                  <li class="row row--todo" id="app-row-3"><svg><use href="#i-todo" /></svg><code>ORD-142.3</code><span>Export button and download state</span><em>queued</em></li>
-                </ul>
-                <div class="app-activity">
-                  <p class="app-side-label">Activity</p>
-                  <ul id="app-log">
-                    <li><b>audit</b> 6/6 acceptance criteria met</li>
-                    <li><b>review</b> 3 findings verified, 2 fixed, 1 rejected</li>
-                    <li><b>learning</b> saved: "keep Result types in use cases"</li>
+            <div class="app-panel" aria-hidden="true">
+              <div class="app-top">
+                <span>Work</span><span class="sep">›</span><span>Goal runs</span><span class="sep">›</span><b>ORD-142</b>
+                <span class="tools mono">1 / 2</span>
+              </div>
+              <div class="app-body">
+                <div class="detail">
+                  <div class="chips">
+                    <span class="chip chip--active">Active</span>
+                    <span class="chip-key mono">ORD-142</span>
+                    <span class="chip">goal</span>
+                    <span class="chip"><span class="dot dot--active"></span>Claude Code</span>
+                  </div>
+                  <p class="detail-title">CSV export for the filtered orders list</p>
+                  <div class="detail-meta">
+                    <span><svg width="14" height="14"><use href="#i-folder" /></svg><code>~/code/orders-app</code></span>
+                    <span><svg width="14" height="14"><use href="#i-branch" /></svg><code>feat/ORD-142-csv-export</code></span>
+                  </div>
+                  <div class="controls">
+                    <span class="ctl"><svg width="13" height="13"><use href="#i-pause" /></svg>Pause after subtask <kbd>P</kbd></span>
+                    <span class="ctl"><svg width="13" height="13"><use href="#i-stop" /></svg>Pause <kbd>⇧</kbd><kbd>P</kbd></span>
+                    <span class="ctl ctl--danger"><svg width="13" height="13"><use href="#i-x" /></svg>Cancel</span>
+                  </div>
+                  <div class="stats">
+                    <div class="stat"><small>Goal stage</small><b>Subtask 2 of 3</b><i>in order</i></div>
+                    <div class="stat"><small>Phase</small><b id="m-phase">review</b><i>run 1</i></div>
+                    <div class="stat"><small>Goal active</small><b id="m-goal">43m</b><i>ticking</i></div>
+                    <div class="stat"><small>Subtask active</small><b id="m-sub">15m 54s</b><i>ticking</i></div>
+                  </div>
+
+                  <p class="block-head">Subtasks <em>1/3</em></p>
+                  <ul class="subtasks">
+                    <li class="subtask"><span class="n">01</span><svg class="si si--done"><use href="#s-done" /></svg>Streamed CSV writer for order rows<span class="end">4e1c9a2</span></li>
+                    <li class="subtask is-run"><span class="n">02</span><svg class="si si--run"><use href="#s-run" /></svg>Apply active filters to the export query<span class="end" id="m-sub-row">15m 54s</span></li>
+                    <li class="subtask is-todo"><span class="n">03</span><svg class="si si--todo"><use href="#s-todo" /></svg>Export button and download state<span class="end"></span></li>
+                    <li class="subtask is-todo"><span class="n">··</span><svg class="si si--todo"><use href="#s-todo" /></svg>Goal finish<span class="end">qa · validate · pr · monitor</span></li>
+                  </ul>
+
+                  <p class="block-head">Phase pipeline</p>
+                  <div class="pipeline" id="m-pipeline"></div>
+
+                  <p class="block-head">Activity <em id="m-act-count">3</em></p>
+                  <ul class="activity" id="m-activity">
+                    <li><span class="av av--claude">Cl</span><span><b>claude</b> durable progress <span class="ago">· 8s ago</span></span></li>
+                    <li><span class="av av--claude">Cl</span><span><b>claude</b> edited <code>src/orders/export/ExportQuery.kt</code> <span class="ago">· 51s ago</span></span></li>
+                    <li><span class="av av--run">✓</span><span><b>audit</b> 6 of 6 acceptance criteria met <span class="ago">· 2m ago</span></span></li>
                   </ul>
                 </div>
-              </div>
-
-              <div class="app-pipe" aria-hidden="true">
-                <p class="app-side-label">Pipeline · ORD-142.2</p>
-                <ol id="app-pipe">
-                  <li class="is-done">intake</li>
-                  <li class="is-done">plan</li>
-                  <li class="is-done">implement</li>
-                  <li class="is-done">audit</li>
-                  <li class="is-done">review</li>
-                  <li class="is-run">validate</li>
-                  <li>history</li>
-                  <li>commit</li>
-                </ol>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="wrap agents">
-          <p>Runs inside the agent you already use</p>
+        <div class="agents">
+          <p>Works with the agent CLI you already use</p>
           <ul>
             <li>Claude Code</li>
             <li>Codex</li>
@@ -159,301 +191,203 @@
             <li>Junie</li>
           </ul>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Built for serious builders -->
-      <section class="section" id="builders" aria-labelledby="builders-title">
-        <div class="wrap">
-          <div class="split-head">
-            <h2 id="builders-title">Built for serious builders</h2>
-            <p>
-              For engineers who want an agent to ship whole features and still read
-              every diff before it merges. If you want autocomplete, this is too much
-              process. If you want a process, it's the right amount.
-            </p>
-          </div>
-          <ul class="pillars">
-            <li>
-              <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="5" height="14" rx="1.5" /><rect x="12" y="3" width="5" height="14" rx="1.5" /></svg>
-              <h3>Control</h3>
-              <p>Pause, stop or resume any run. Anything that edits, tags or pushes waits for your confirmation.</p>
-            </li>
-            <li>
-              <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3" /><path d="M1.5 10S5 4 10 4s8.5 6 8.5 6-3.5 6-8.5 6-8.5-6-8.5-6Z" /></svg>
-              <h3>Transparency</h3>
-              <p>Every phase leaves a named artifact you can open. Every instruction file the agent saw is recorded by hash.</p>
-            </li>
-            <li>
-              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7a6.5 6.5 0 0 1 12 0M16 13a6.5 6.5 0 0 1-12 0" /><path d="M16 3v4h-4M4 17v-4h4" /></svg>
-              <h3>Reproducibility</h3>
-              <p>Same pipeline, same gates, every run. Each run works from a written spec you can read before any code changes.</p>
-            </li>
-            <li>
-              <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="3" width="6" height="5" rx="1.2" /><rect x="11.5" y="12" width="6" height="5" rx="1.2" /><path d="M8.5 5.5h3a2 2 0 0 1 2 2V12" /></svg>
-              <h3>Structured workflows</h3>
-              <p>Big work splits into dependency-ordered subtasks. Each gets a fresh context and exactly one commit.</p>
-            </li>
-            <li>
-              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M8 3h4v3a2 2 0 1 0 3 0V3h2v14H3V3h2v3a2 2 0 1 0 3 0Z" /></svg>
-              <h3>Extensibility</h3>
-              <p>Platform packs, add-ons, per-phase instructions and your own skills, all written as plain source files.</p>
-            </li>
-            <li>
-              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 3.5 4.5v5c0 4 2.8 7 6.5 8.5 3.7-1.5 6.5-4.5 6.5-8.5v-5Z" /><path d="m7 10 2 2 4-4" /></svg>
-              <h3>Reliability</h3>
-              <p>A repair round that doesn't close gaps stops the run and says why. Failing CI gets repaired, not ignored.</p>
-            </li>
+    <!-- Pipeline -->
+    <section class="section section-first" id="pipeline" aria-labelledby="pipeline-title">
+      <div class="wrap">
+        <p class="eyebrow"><span class="num">01</span>Pipeline</p>
+        <h2 id="pipeline-title">Every change takes the same path.</h2>
+        <p class="lede">The agent writes the code. The runtime sets the order, runs the gates and records what each phase produced. A phase that doesn't meet its contract stops the run and says why.</p>
+
+        <ol class="stages">
+          <li class="stg"><span class="n">01</span><h3>Spec</h3><p>An issue and its acceptance criteria become a spec bundle you can read before any code changes.</p><code>spec.md</code></li>
+          <li class="stg"><span class="n">02</span><h3>Plan</h3><p>Large work is split into dependency-ordered subtasks. Each runs in a fresh context and ends in one commit.</p><code>spec_subtask_N.md</code></li>
+          <li class="stg"><span class="n">03</span><h3>Implement</h3><p>The agent builds the subtask against the spec, the plan and the decisions recorded by earlier work.</p><code>agent/decisions.md</code></li>
+          <li class="stg"><span class="n">04</span><h3>Audit</h3><p>The result is checked against every acceptance criterion. Gaps go back to the agent for repair.</p><code>audit</code></li>
+          <li class="stg"><span class="n">05</span><h3>Review</h3><p>Specialist reviewers for your platform report findings. Each finding is verified before it is fixed.</p><code>review · verify_findings</code></li>
+          <li class="stg"><span class="n">06</span><h3>Validate</h3><p>Your project's own build, tests, lint and formatting run. Failures are repaired, not skipped.</p><code>validate</code></li>
+          <li class="stg"><span class="n">07</span><h3>QA</h3><p>Declared targets are exercised: endpoints, web journeys, the desktop app or a device.</p><code>qa · qa_fix</code></li>
+          <li class="stg"><span class="n">08</span><h3>Pull request</h3><p>The branch is pushed, the PR opened and CI watched. Failing checks and merge conflicts are repaired.</p><code>pr · monitor</code></li>
+        </ol>
+        <p class="note">Each phase can also run on its own: review a branch, validate it, QA it or open its PR.</p>
+      </div>
+    </section>
+
+    <!-- Control -->
+    <section class="section" id="control" aria-labelledby="control-title">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow"><span class="num">02</span>Control</p>
+          <h2 id="control-title">You start the run. You approve what leaves.</h2>
+          <p class="lede">Sona is built around operator decisions. Agents work inside the run; anything that edits, tags or pushes waits for you.</p>
+          <ul class="points">
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-pause" /></svg><div><b>Pause, stop or resume</b><span>Stop after the current subtask or immediately. Resume from the last finished phase.</span></div></li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-check" /></svg><div><b>Explicit confirmation</b><span>Proposals show what will change before anything is applied.</span></div></li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-comment" /></svg><div><b>Review in place</b><span>Read each subtask's diff and leave inline comments for the agent to address.</span></div></li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-eye" /></svg><div><b>A record of every phase</b><span>Each phase leaves a named artifact. Instruction files the agent saw are recorded by hash.</span></div></li>
           </ul>
         </div>
-      </section>
 
-      <!-- Features bento -->
-      <section class="section" id="features" aria-labelledby="features-title">
-        <div class="wrap">
-          <div class="center-head">
-            <p class="eyebrow">Features</p>
-            <h2 id="features-title">Everything your agent forgets,<br />kept on record.</h2>
+        <div class="surface" role="img" aria-label="A confirmation card for opening a pull request, with Dismiss, Adjust and Confirm buttons.">
+          <div aria-hidden="true">
+            <div class="surface-head"><svg class="si si--warn"><use href="#s-warn" /></svg><b>Needs you</b><span class="right mono">ORD-142</span></div>
+            <div class="confirm-body">
+              <p class="confirm-title">Open pull request</p>
+              <p class="confirm-sub">The goal finished its subtasks. Review the proposal before it pushes.</p>
+              <dl class="kv">
+                <dt>Branch</dt><dd><code>feat/ORD-142-csv-export</code> → <code>main</code></dd>
+                <dt>Commits</dt><dd>3, one per subtask</dd>
+                <dt>Validate</dt><dd><span class="ok">passed</span> · build, tests, lint</dd>
+                <dt>Review</dt><dd>5 findings verified, 4 fixed, 1 rejected</dd>
+                <dt>QA</dt><dd><span class="ok">passed</span> · web journey: export filtered orders</dd>
+              </dl>
+            </div>
+            <div class="diff">
+              <div class="ln ln--hunk"><i></i><span></span>@@ ExportQuery.kt @@</div>
+              <div class="ln"><i>41</i><span> </span>  fun rows(filter: OrderFilter): Sequence&lt;Order&gt; =</div>
+              <div class="ln ln--del"><i>42</i><span>-</span>    repo.all()</div>
+              <div class="ln ln--add"><i>42</i><span>+</span>    repo.stream(filter.toQuery())</div>
+              <div class="thread">
+                <p><span class="who">You ·</span> Keep the page size from the list view.</p>
+                <p><span class="who">claude ·</span> <b>Resolved</b> in subtask 02, uses <code>filter.pageSize</code>.</p>
+              </div>
+            </div>
+            <div class="confirm-actions">
+              <span class="btn btn-quiet btn-sm">Dismiss</span>
+              <span class="btn btn-secondary btn-sm">Adjust</span>
+              <span class="btn btn-primary btn-sm">Confirm</span>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="bento">
-            <article class="tile tile--wide">
-              <div class="tile-copy">
-                <h3>Continuity across sessions</h3>
-                <p>Phase outputs and progress live in a local database, not a chat window. Hit a usage limit, close the laptop, switch agents. The run continues from the last finished phase.</p>
-              </div>
-              <div class="vg vg-timeline" aria-hidden="true">
-                <div class="vg-step"><span class="vg-agent">Claude Code</span><span>implement · audit · review</span></div>
-                <div class="vg-step vg-step--cut"><span class="vg-agent">session lost</span><span>usage limit reached</span></div>
-                <div class="vg-step vg-step--go"><span class="vg-agent">Codex</span><span>resumed at validate</span></div>
-              </div>
-            </article>
+    <!-- Continuity -->
+    <section class="section" id="continuity" aria-labelledby="continuity-title">
+      <div class="wrap split">
+        <div class="surface" role="img" aria-label="A run timeline. Claude Code completes implement, audit and review, the session hits a usage limit, and Codex resumes the run at validate.">
+          <div aria-hidden="true">
+            <div class="surface-head"><b>ORD-142</b><span>· Activity</span><span class="right mono">review-metrics.db</span></div>
+            <ol class="timeline">
+              <li class="tl tl--done"><span class="node"></span><div><b>Claude Code</b><p><code>implement</code> → <code>audit</code> → <code>review</code></p></div><time>14:02</time></li>
+              <li class="tl tl--done"><span class="node"></span><div><b>Durable progress saved</b><p>Phase outputs written at each boundary</p></div><time>14:31</time></li>
+              <li class="tl tl--cut"><span class="node"></span><div><b>Session ended</b><p>Usage limit reached. The run waits.</p></div><time>14:33</time></li>
+              <li class="tl tl--run"><span class="node"></span><div><b>Codex</b><p>Resumed at <code>validate</code> with the same spec, plan and history</p></div><time>14:40</time></li>
+              <li class="tl"><span class="node"></span><div><b>Goal finish</b><p><code>qa</code> → <code>pr</code> → <code>monitor</code></p></div><time></time></li>
+            </ol>
+          </div>
+        </div>
 
-            <article class="tile">
-              <div class="vg vg-doc" aria-hidden="true">
-                <p class="vg-file">agent/decisions.md</p>
-                <pre><span class="c-h">## orders/export</span>
-<span class="c-k">Decision:</span> stream rows to the file
-<span class="c-k">Why:</span> exports pass 200k rows
-<span class="c-k">Rejected:</span> in-memory CSV builder</pre>
-              </div>
-              <div class="tile-copy">
-                <h3>Decision tracking</h3>
-                <p>Each subtask writes its decisions next to the code it touched. The next plan reads them first.</p>
-              </div>
-            </article>
+        <div>
+          <p class="eyebrow"><span class="num">03</span>Continuity</p>
+          <h2 id="continuity-title">Runs outlive the session.</h2>
+          <p class="lede">Progress lives in a local database, not a chat window. Close the laptop, hit a limit or switch agents halfway through; the run continues from the last finished phase.</p>
+          <ul class="points">
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-history" /></svg><div><b>Resumable at every boundary</b><span>Each phase writes its output before the next one starts.</span></div></li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-spec" /></svg><div><b>Decisions carry forward</b><span>Subtasks record their decisions next to the code. The next plan reads them first.</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-            <article class="tile">
-              <div class="vg vg-learn" aria-hidden="true">
-                <div class="vg-finding"><span class="tag tag--red">rejected</span>"Wrap the call in runCatching"</div>
-                <div class="vg-arrow">↓ you confirm</div>
-                <div class="vg-finding vg-finding--ok"><span class="tag tag--green">learning</span>Use Result types in use cases</div>
-              </div>
-              <div class="tile-copy">
-                <h3>Learning system</h3>
-                <p>Reject a review finding and confirm it, and it becomes a learning. Later reviews apply it instead of repeating the mistake.</p>
-              </div>
-            </article>
+    <!-- Features -->
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <p class="eyebrow"><span class="num">04</span>Details</p>
+        <h2 id="features-title">Configured as source, not settings.</h2>
+        <p class="lede">The parts you'd want to change are plain files in your repository and on your disk.</p>
+        <div class="grid">
+          <article class="cell"><code>learnings</code><h3>Learning from review</h3><p>Reject a review finding and confirm it, and it becomes a learning. Later reviews apply it.</p></article>
+          <article class="cell"><code>config.json</code><h3>Model per phase</h3><p>Choose the model and effort for each phase. Plan with one, implement with another.</p></article>
+          <article class="cell"><code>phases/review.md</code><h3>Phase instructions</h3><p>Add a markdown file to give one phase your team's rules and conventions.</p></article>
+          <article class="cell"><code>platform-packs/</code><h3>Platform packs</h3><p>Go, iOS, Kotlin, KMP, PHP, Python, Rust and TypeScript. Packs declare routing, review areas, checks and QA.</p></article>
+          <article class="cell"><code>skills/</code><h3>Your own skills</h3><p>Add-ons and custom skills are written as plain source files, versioned with everything else.</p></article>
+          <article class="cell"><code>telemetry</code><h3>Telemetry you can audit</h3><p>Anonymous, full or off, set at install. Every field is documented and the relay can be self-hosted.</p></article>
+        </div>
+      </div>
+    </section>
 
-            <article class="tile">
-              <div class="vg vg-doc" aria-hidden="true">
-                <p class="vg-file">config.json</p>
-                <pre>{
-  <span class="c-k">"review"</span>: { <span class="c-k">"model"</span>: <span class="c-s">"opus"</span>, <span class="c-k">"effort"</span>: <span class="c-s">"high"</span> },
-  <span class="c-k">"implement"</span>: { <span class="c-k">"model"</span>: <span class="c-s">"sonnet"</span> }
-}</pre>
-              </div>
-              <div class="tile-copy">
-                <h3>Overrides and configuration</h3>
-                <p>Choose the model and effort per phase. Add a markdown file to give one phase your team's rules.</p>
-              </div>
-            </article>
-
-            <article class="tile">
-              <div class="vg vg-packs" aria-hidden="true">
-                <span>Go</span><span>iOS</span><span>Kotlin</span><span>KMP</span><span>PHP</span><span>Python</span><span>Rust</span><span>TypeScript</span><span class="vg-pack-new">+ your pack</span>
-              </div>
-              <div class="tile-copy">
-                <h3>Modular architecture</h3>
-                <p>Platform packs declare their routing, review areas, checks and QA. Add one without touching a hard-coded list.</p>
-              </div>
-            </article>
-
-            <article class="tile">
-              <div class="vg vg-seg" aria-hidden="true">
-                <div class="seg"><span class="is-on">anonymous</span><span>full</span><span>off</span></div>
-                <p>Every field documented. Relay can be self-hosted.</p>
-              </div>
-              <div class="tile-copy">
-                <h3>Telemetry you can audit</h3>
-                <p>Pick the level at install and change it with one command. Workflow state never leaves your machine.</p>
-              </div>
-            </article>
-
-            <article class="tile tile--wide tile--accent">
-              <div class="tile-copy">
-                <h3>Local-first. Developer-controlled.</h3>
-                <p>The runtime, your specs and every run's history stay on your disk. It uses your agent CLI, your credentials and your repository. There's no account to create and no server you depend on.</p>
-              </div>
-              <div class="vg vg-tree" aria-hidden="true">
-                <pre><span class="c-h">~/.skill-bill/</span>
+    <!-- Local-first -->
+    <section class="section" id="local" aria-labelledby="local-title">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow"><span class="num">05</span>Local-first</p>
+          <h2 id="local-title">Your machine, your agent, your credentials.</h2>
+          <p class="lede">The runtime, your specs and every run's history stay on your disk. Sona uses the agent CLI you have installed and the repository you already work in.</p>
+          <div class="facts">
+            <div><b>No account</b><span>Nothing to sign up for</span></div>
+            <div><b>No backend</b><span>Nothing hosted</span></div>
+            <div><b>Your credentials</b><span>Your agent CLI login</span></div>
+          </div>
+        </div>
+        <div class="surface">
+          <div class="surface-head"><svg width="14" height="14" aria-hidden="true"><use href="#i-folder" /></svg><b class="mono">~/.skill-bill</b></div>
+<pre class="tree"><span class="h">~/.skill-bill/</span>
 ├── runtime/
-├── projects/<span class="c-d">&lt;project-id&gt;</span>/
-│   └── phases/review.md
-└── state.db   <span class="c-d"># every run, every phase</span></pre>
-              </div>
-            </article>
-          </div>
+├── projects/<span class="d">&lt;project-id&gt;/</span>
+│   ├── specs/<span class="d">ORD-142-csv-export/</span>
+│   │   ├── spec.md
+│   │   └── spec_subtask_1_streamed-writer.md
+│   └── phases/review.md    <span class="d"># your rules for one phase</span>
+└── review-metrics.db       <span class="d"># every run, every phase</span></pre>
         </div>
-      </section>
-
-      <!-- Method -->
-      <section class="section method" id="method" aria-labelledby="method-title">
-        <div class="wrap">
-          <div class="center-head">
-            <p class="eyebrow">The method</p>
-            <h2 id="method-title">One governed path from spec to merge.</h2>
-            <p class="lede">Agents do the work. The runtime decides the order, runs the gates and keeps the record. Pick a stage to see what it reads and writes.</p>
-          </div>
-
-          <div class="method-grid" id="method-grid">
-            <div class="stages" role="tablist" aria-label="Pipeline stages" aria-orientation="vertical">
-              <button class="stage" role="tab" id="tab-spec" aria-selected="true" aria-controls="method-panel" data-stage="spec" data-uses="state spec cli">
-                <span class="stage-n">01</span><span class="stage-t">Spec</span><span class="stage-d">Issue to acceptance criteria</span><span class="stage-bar"></span>
-              </button>
-              <button class="stage" role="tab" id="tab-plan" aria-selected="false" tabindex="-1" aria-controls="method-panel" data-stage="plan" data-uses="state spec history decisions mcp">
-                <span class="stage-n">02</span><span class="stage-t">Plan</span><span class="stage-d">Context, then subtasks</span><span class="stage-bar"></span>
-              </button>
-              <button class="stage" role="tab" id="tab-execute" aria-selected="false" tabindex="-1" aria-controls="method-panel" data-stage="execute" data-uses="state spec packs mcp">
-                <span class="stage-n">03</span><span class="stage-t">Execute</span><span class="stage-d">Implement and audit</span><span class="stage-bar"></span>
-              </button>
-              <button class="stage" role="tab" id="tab-review" aria-selected="false" tabindex="-1" aria-controls="method-panel" data-stage="review" data-uses="state learnings packs mcp">
-                <span class="stage-n">04</span><span class="stage-t">Review</span><span class="stage-d">Specialists and real checks</span><span class="stage-bar"></span>
-              </button>
-              <button class="stage" role="tab" id="tab-finalise" aria-selected="false" tabindex="-1" aria-controls="method-panel" data-stage="finalise" data-uses="state history decisions cli">
-                <span class="stage-n">05</span><span class="stage-t">Finalise</span><span class="stage-d">Record, commit, ship</span><span class="stage-bar"></span>
-              </button>
-            </div>
-
-            <div class="panel" id="method-panel" role="tabpanel" aria-labelledby="tab-spec">
-              <div class="panel-agents">
-                <span class="panel-label">Agents</span>
-                <span class="agent">Claude Code</span><span class="agent">Codex</span><span class="agent">Cursor</span><span class="agent">Junie</span>
-              </div>
-              <div class="panel-core">
-                <p class="panel-title" id="panel-title">Spec</p>
-                <p class="panel-text" id="panel-text">Intake turns an issue and its acceptance criteria into a spec bundle kept on your machine, outside version control. No issue key? It takes the next free one.</p>
-                <p class="panel-out">writes <code id="panel-out">spec.md</code></p>
-              </div>
-              <div class="panel-runtime"><svg class="ff" aria-hidden="true"><use href="#ff" /></svg><b>Runtime</b><span>durable state at every phase boundary</span></div>
-              <div class="panel-layers">
-                <div>
-                  <p class="panel-label">Memory</p>
-                  <ul>
-                    <li data-node="state">Run state</li>
-                    <li data-node="spec">Spec bundle</li>
-                    <li data-node="learnings">Learnings</li>
-                  </ul>
-                </div>
-                <div>
-                  <p class="panel-label">Decisions</p>
-                  <ul>
-                    <li data-node="history">history.md</li>
-                    <li data-node="decisions">decisions.md</li>
-                  </ul>
-                </div>
-                <div>
-                  <p class="panel-label">Tools</p>
-                  <ul>
-                    <li data-node="cli">CLI</li>
-                    <li data-node="mcp">MCP server</li>
-                    <li data-node="packs">Platform packs</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Manifesto -->
-      <section class="section manifesto" id="manifesto" aria-labelledby="manifesto-title">
-        <div class="wrap">
-          <p class="eyebrow" id="manifesto-title">Manifesto</p>
-          <ol class="manifesto-list">
-            <li class="m-item">
-              <p class="m-line">No vendor lock-in.</p>
-              <p class="m-note">Four agents, one runtime. Switch halfway through a run.</p>
-            </li>
-            <li class="m-item">
-              <p class="m-line">No disposable context.</p>
-              <p class="m-note">State lives on disk, not in a chat window.</p>
-            </li>
-            <li class="m-item">
-              <p class="m-line">No chaos disguised as intelligence.</p>
-              <p class="m-note">Every phase has a contract, a gate and an artifact.</p>
-            </li>
-            <li class="m-item m-item--final">
-              <p class="m-line">Serious engineering.<br />Zero bullshi<span class="ast">*</span>t.</p>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <section class="section cta" id="install" aria-labelledby="cta-title">
-        <div class="cta-light" aria-hidden="true"></div>
-        <div class="wrap cta-inner">
-          <svg class="ff ff--big" aria-hidden="true"><use href="#ff" /></svg>
-          <h2 id="cta-title">Fast forward development.</h2>
-          <p class="lede">One command installs the runtime, the desktop app and the skill for every agent you choose. Checksum-verified. No JDK, no build tools.</p>
-
-          <div class="install" role="group" aria-label="Install command">
-            <pre><code id="install-cmd">curl -fsSL https://raw.githubusercontent.com/Sermilion/SonaADE/main/install.sh | bash</code></pre>
-            <button type="button" class="btn btn-light btn-sm" id="copy-install" data-copy="#install-cmd">Copy</button>
-          </div>
-          <p class="install-note">macOS, Linux and Windows. Pre-1.0, and we ship our own features through this pipeline.</p>
-          <p class="install-note">Prefer to read the script first? <a href="https://raw.githubusercontent.com/Sermilion/SonaADE/main/install.sh" target="_blank" rel="noopener noreferrer">Open install.sh</a>, then run it locally.</p>
-
-          <div class="cta-actions">
-            <a class="btn btn-light" href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Read the docs</a>
-            <a class="btn btn-ghost" href="#method">Explore the architecture</a>
-            <a class="btn btn-ghost" href="https://github.com/Sermilion/SonaADE" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="wrap footer-inner">
-        <div class="footer-brand">
-          <p class="wordmark">Sona</p>
-          <p class="footer-domain">sona-ade.com</p>
-          <p class="footer-tag"><svg class="ff" aria-hidden="true"><use href="#ff" /></svg>Fast forward development.</p>
-        </div>
-        <nav class="footer-cols" aria-label="Footer">
-          <div>
-            <p>Product</p>
-            <a href="#features">Features</a>
-            <a href="#method">Method</a>
-            <a href="#manifesto">Manifesto</a>
-          </div>
-          <div>
-            <p>Resources</p>
-            <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Docs</a>
-            <a href="https://github.com/Sermilion/SonaADE" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/telemetry-privacy.md" target="_blank" rel="noopener noreferrer">Telemetry privacy</a>
-          </div>
-          <div>
-            <p>Legal</p>
-            <a href="https://github.com/Sermilion/SonaADE/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT license</a>
-          </div>
-        </nav>
       </div>
-      <div class="wrap footer-base">
-        <p>Serious engineering. Zero bullshi<span class="ast">*</span>t.</p>
-      </div>
-    </footer>
+    </section>
 
+    <!-- Install -->
+    <section class="section install" id="install" aria-labelledby="install-title">
+      <div class="wrap">
+        <p class="eyebrow"><span class="num">06</span>Install</p>
+        <h2 id="install-title">Install the runtime and the desktop app.</h2>
+        <p class="lede">One command installs the runtime, the desktop app and the skill for each agent you choose. Binaries are checksum-verified. No JDK or build tools required.</p>
+        <div class="surface install-box">
+          <div class="install-row">
+            <code><span class="prompt">$ </span><span id="install-cmd">curl -fsSL https://raw.githubusercontent.com/Sermilion/SonaADE/main/install.sh | bash</span></code>
+            <button type="button" class="copy" data-copy="install-cmd">Copy</button>
+          </div>
+          <div class="install-meta">
+            <span>macOS, Linux and Windows</span>
+            <span>Pre-1.0</span>
+            <span><a href="https://raw.githubusercontent.com/Sermilion/SonaADE/main/install.sh" target="_blank" rel="noopener noreferrer">Read install.sh</a> before running it</span>
+          </div>
+        </div>
+        <div class="install-actions">
+          <a class="btn btn-secondary" href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Getting started</a>
+        </div>
+        <p class="sr-only" id="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="Sona home"><svg class="mark" width="20" height="20" aria-hidden="true"><use href="#ping" /></svg>Sona</a>
+        <p>Agentic development environment</p>
+      </div>
+      <nav class="footer-cols" aria-label="Footer">
+        <div>
+          <p>Product</p>
+          <a href="#pipeline">Pipeline</a>
+          <a href="#control">Control</a>
+          <a href="#continuity">Continuity</a>
+          <a href="#local">Local-first</a>
+        </div>
+        <div>
+          <p>Resources</p>
+          <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Getting started</a>
+          <a href="https://github.com/Sermilion/SonaADE" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/telemetry-privacy.md" target="_blank" rel="noopener noreferrer">Telemetry privacy</a>
+        </div>
+      </nav>
+    </div>
+    <div class="wrap footer-base">
+      <span>sona-ade.com</span>
+      <span>© 2026 Sona</span>
+    </div>
+  </footer>
     <script src="main.js" defer></script>
   </body>
 </html>
