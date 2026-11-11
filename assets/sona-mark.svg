@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Sona">
+  <defs>
+    <clipPath id="ping-clip"><circle cx="50" cy="50" r="44"/></clipPath>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#17171B"/>
+  <g transform="translate(14 14) scale(0.36)">
+    <g clip-path="url(#ping-clip)" fill="none" stroke="#EDEDF0">
+      <circle cx="18.9" cy="81.1" r="13" stroke-width="26"/>
+      <circle cx="18.9" cy="81.1" r="47" stroke-width="22"/>
+      <circle cx="18.9" cy="81.1" r="80" stroke-width="22"/>
+    </g>
+  </g>
+</svg>
