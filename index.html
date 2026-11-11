@@ -77,6 +77,7 @@
         <a href="#pipeline">Pipeline</a>
         <a href="#control">Control</a>
         <a href="#continuity">Continuity</a>
+        <a href="#agents">Agents</a>
         <a href="#local">Local-first</a>
         <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Docs</a>
       </nav>
@@ -188,7 +189,7 @@
             <li>Claude Code</li>
             <li>Codex</li>
             <li>Cursor</li>
-            <li>Junie</li>
+            <li class="is-soon">OpenCode <span class="soon">Soon</span></li>
           </ul>
         </div>
       </div>
@@ -292,10 +293,41 @@
       </div>
     </section>
 
+    <!-- Agents -->
+    <section class="section" id="agents" aria-labelledby="agents-title">
+      <div class="wrap">
+        <p class="eyebrow"><span class="num">04</span>Agents</p>
+        <h2 id="agents-title">Works with the agent you already use.</h2>
+        <p class="lede">Sona drives the agent CLI installed on your machine, signed in with your own account. The installer adds Sona to each agent you choose, and a run can move between agents without losing its place.</p>
+        <ul class="agent-grid">
+          <li class="agent-card">
+            <div class="agent-head"><h3>Claude Code</h3><span class="status status--ok">Supported</span></div>
+            <p>Anthropic</p>
+            <code>claude</code>
+          </li>
+          <li class="agent-card">
+            <div class="agent-head"><h3>Codex</h3><span class="status status--ok">Supported</span></div>
+            <p>OpenAI</p>
+            <code>codex</code>
+          </li>
+          <li class="agent-card">
+            <div class="agent-head"><h3>Cursor</h3><span class="status status--ok">Supported</span></div>
+            <p>Cursor CLI</p>
+            <code>cursor-agent</code>
+          </li>
+          <li class="agent-card agent-card--soon">
+            <div class="agent-head"><h3>OpenCode</h3><span class="status status--soon">Coming soon</span></div>
+            <p>Terminal coding agent</p>
+            <code>opencode</code>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <!-- Features -->
     <section class="section" id="features" aria-labelledby="features-title">
       <div class="wrap">
-        <p class="eyebrow"><span class="num">04</span>Details</p>
+        <p class="eyebrow"><span class="num">05</span>Details</p>
         <h2 id="features-title">Configured as source, not settings.</h2>
         <p class="lede">The parts you'd want to change are plain files in your repository and on your disk.</p>
         <div class="grid">
@@ -313,7 +345,7 @@
     <section class="section" id="local" aria-labelledby="local-title">
       <div class="wrap split">
         <div>
-          <p class="eyebrow"><span class="num">05</span>Local-first</p>
+          <p class="eyebrow"><span class="num">06</span>Local-first</p>
           <h2 id="local-title">Your machine, your agent, your credentials.</h2>
           <p class="lede">The runtime, your specs and every run's history stay on your disk. Sona uses the agent CLI you have installed and the repository you already work in.</p>
           <div class="facts">
@@ -339,7 +371,7 @@
     <!-- Install -->
     <section class="section install" id="install" aria-labelledby="install-title">
       <div class="wrap">
-        <p class="eyebrow"><span class="num">06</span>Install</p>
+        <p class="eyebrow"><span class="num">07</span>Install</p>
         <h2 id="install-title">Install the runtime and the desktop app.</h2>
         <p class="lede">One command installs the runtime, the desktop app and the skill for each agent you choose. Binaries are checksum-verified. No JDK or build tools required.</p>
         <div class="surface install-box">
@@ -373,6 +405,7 @@
           <a href="#pipeline">Pipeline</a>
           <a href="#control">Control</a>
           <a href="#continuity">Continuity</a>
+          <a href="#agents">Agents</a>
           <a href="#local">Local-first</a>
         </div>
         <div>
