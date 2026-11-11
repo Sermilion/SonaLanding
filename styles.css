@@ -115,7 +115,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   content: ""; position: absolute; inset: 0 0 auto 0; height: 720px; pointer-events: none;
   background: radial-gradient(60% 50% at 50% 0%, rgba(255, 255, 255, 0.045), transparent 70%);
 }
-.hero-inner { position: relative; }
+.hero-inner { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .hero-inner > * { max-width: 860px; }
 .label {
   display: inline-flex; align-items: center; gap: 8px;
@@ -132,11 +132,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .hero-title span { color: var(--fg-muted); }
 .hero-lede {
-  margin-top: 24px; max-width: 620px;
+  margin-top: 24px; max-width: 660px;
   font-size: 18px; line-height: 1.55; color: var(--fg-muted);
   text-wrap: pretty;
 }
-.hero-actions { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.hero-actions { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; }
 .cmd {
   display: inline-flex; align-items: center; gap: 10px;
   height: 36px; padding: 0 6px 0 12px;
