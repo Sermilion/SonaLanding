@@ -3,28 +3,28 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>TYPE SHI*T — Fast forward development</title>
+    <title>Sona — Agentic development environment</title>
     <meta
       name="description"
-      content="TYPE SHI*T holds your AI coding agent to an engineering process: plan, build, audit, review, validate, ship. State stays on your machine, so any agent can pick up where the last one stopped."
+      content="Sona is an agentic development environment. It holds your AI coding agent to an engineering process: plan, build, audit, review, validate, ship. State stays on your machine, so any agent can pick up where the last one stopped."
     />
     <meta name="theme-color" content="#0c0c0f" />
-    <link rel="canonical" href="https://typeshifft.com/" />
+    <link rel="canonical" href="https://sona-ade.com/" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="TYPE SHI*T" />
-    <meta property="og:url" content="https://typeshifft.com/" />
-    <meta property="og:title" content="TYPE SHI*T — Fast forward development" />
+    <meta property="og:site_name" content="Sona" />
+    <meta property="og:url" content="https://sona-ade.com/" />
+    <meta property="og:title" content="Sona — Agentic development environment" />
     <meta
       property="og:description"
       content="An engineering process for AI coding agents. Spec in, merge-ready pull request out. Serious engineering. Zero bullshi*t."
     />
-    <meta property="og:image" content="https://typeshifft.com/assets/og-image.png" />
+    <meta property="og:image" content="https://sona-ade.com/assets/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="TYPE SHI*T. Fast forward development." />
+    <meta property="og:image:alt" content="Sona. Agentic development environment." />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://typeshifft.com/assets/og-image.png" />
-    <link rel="icon" href="assets/typeshifft-mark.svg" type="image/svg+xml" />
+    <meta name="twitter:image" content="https://sona-ade.com/assets/og-image.png" />
+    <link rel="icon" href="assets/sona-mark.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,15 +45,15 @@
 
     <header class="site-header">
       <div class="header-inner">
-        <a class="wordmark" href="#top" aria-label="TYPE SHI*T home">TYPE SHI<span class="ast">*</span>T</a>
+        <a class="wordmark" href="#top" aria-label="Sona home">Sona</a>
         <nav class="site-nav" aria-label="Primary">
           <a href="#features">Features</a>
           <a href="#method">Method</a>
           <a href="#manifesto">Manifesto</a>
-          <a href="https://github.com/Sermilion/typeshifft/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Docs</a>
+          <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Docs</a>
         </nav>
         <div class="header-actions">
-          <a class="link-quiet" href="https://github.com/Sermilion/typeshifft" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="link-quiet" href="https://github.com/Sermilion/SonaADE" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a class="btn btn-light btn-sm" href="#install">Get started</a>
         </div>
       </div>
@@ -74,7 +74,7 @@
             We make it ship.
           </h1>
           <p class="hero-lede">
-            TYPE SHI<span class="ast">*</span>T holds AI coding agents to an engineering process.
+            Sona is an agentic development environment that holds AI coding agents to an engineering process.
             Every feature is planned, built, audited, reviewed and validated before
             the pull request opens. The state lives on your machine, so a crash or a
             different agent picks up exactly where the last one stopped.
@@ -90,7 +90,7 @@
           <div class="app-stage">
             <div class="app" id="app" aria-label="Product preview: a goal running through its pipeline" role="img">
               <aside class="app-side" aria-hidden="true">
-                <div class="app-brand">TYPE SHI<span class="ast">*</span>T</div>
+                <div class="app-brand">Sona</div>
                 <ul class="app-nav">
                   <li class="is-on"><span class="dot dot--run"></span>Work <em>3</em></li>
                   <li><span class="dot"></span>Goals</li>
@@ -295,7 +295,7 @@
                 <p>The runtime, your specs and every run's history stay on your disk. It uses your agent CLI, your credentials and your repository. There's no account to create and no server you depend on.</p>
               </div>
               <div class="vg vg-tree" aria-hidden="true">
-                <pre><span class="c-h">~/.typeshifft/</span>
+                <pre><span class="c-h">~/.skill-bill/</span>
 ├── runtime/
 ├── projects/<span class="c-d">&lt;project-id&gt;</span>/
 │   └── phases/review.md
@@ -408,16 +408,16 @@
           <p class="lede">One command installs the runtime, the desktop app and the skill for every agent you choose. Checksum-verified. No JDK, no build tools.</p>
 
           <div class="install" role="group" aria-label="Install command">
-            <pre><code id="install-cmd">curl -fsSL https://raw.githubusercontent.com/oila-gmbh/typeshifft/main/install.sh | bash</code></pre>
+            <pre><code id="install-cmd">curl -fsSL https://raw.githubusercontent.com/Sermilion/SonaADE/main/install.sh | bash</code></pre>
             <button type="button" class="btn btn-light btn-sm" id="copy-install" data-copy="#install-cmd">Copy</button>
           </div>
           <p class="install-note">macOS, Linux and Windows. Pre-1.0, and we ship our own features through this pipeline.</p>
-          <p class="install-note">Prefer to read the script first? <a href="https://raw.githubusercontent.com/oila-gmbh/typeshifft/main/install.sh" target="_blank" rel="noopener noreferrer">Open install.sh</a>, then run it locally.</p>
+          <p class="install-note">Prefer to read the script first? <a href="https://raw.githubusercontent.com/Sermilion/SonaADE/main/install.sh" target="_blank" rel="noopener noreferrer">Open install.sh</a>, then run it locally.</p>
 
           <div class="cta-actions">
-            <a class="btn btn-light" href="https://github.com/Sermilion/typeshifft/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Read the docs</a>
+            <a class="btn btn-light" href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Read the docs</a>
             <a class="btn btn-ghost" href="#method">Explore the architecture</a>
-            <a class="btn btn-ghost" href="https://github.com/Sermilion/typeshifft" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-ghost" href="https://github.com/Sermilion/SonaADE" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
@@ -426,8 +426,8 @@
     <footer class="site-footer">
       <div class="wrap footer-inner">
         <div class="footer-brand">
-          <p class="wordmark">TYPE SHI<span class="ast">*</span>T</p>
-          <p class="footer-domain">typeshi<span class="ast">ff</span>t.com</p>
+          <p class="wordmark">Sona</p>
+          <p class="footer-domain">sona-ade.com</p>
           <p class="footer-tag"><svg class="ff" aria-hidden="true"><use href="#ff" /></svg>Fast forward development.</p>
         </div>
         <nav class="footer-cols" aria-label="Footer">
@@ -439,13 +439,13 @@
           </div>
           <div>
             <p>Resources</p>
-            <a href="https://github.com/Sermilion/typeshifft/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Docs</a>
-            <a href="https://github.com/Sermilion/typeshifft" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://github.com/Sermilion/typeshifft/blob/main/docs/telemetry-privacy.md" target="_blank" rel="noopener noreferrer">Telemetry privacy</a>
+            <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Docs</a>
+            <a href="https://github.com/Sermilion/SonaADE" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/telemetry-privacy.md" target="_blank" rel="noopener noreferrer">Telemetry privacy</a>
           </div>
           <div>
             <p>Legal</p>
-            <a href="https://github.com/Sermilion/typeshifft/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT license</a>
+            <a href="https://github.com/Sermilion/SonaADE/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT license</a>
           </div>
         </nav>
       </div>

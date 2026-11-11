@@ -1,8 +1,8 @@
-# typeshifft
+# Sona Landing
 
-Marketing landing page for TYPE SHI*T at [typeshifft.com](https://typeshifft.com/).
+Marketing landing page for Sona, the agentic development environment, at [sona-ade.com](https://sona-ade.com/).
 
-Repository: [Sermilion/typeshifft](https://github.com/Sermilion/typeshifft).
+Product repository: [Sermilion/SonaADE](https://github.com/Sermilion/SonaADE).
 
 Static HTML/CSS/JS. No build step.
 
@@ -21,8 +21,21 @@ Open http://127.0.0.1:8765/
 | `index.html` | Page structure, product mockups, and copy |
 | `styles.css` | Layout and brand styles |
 | `main.js` | Page interactions and install-command copy button |
-| `assets/typeshifft-mark.svg` | Brand mark and favicon |
+| `assets/sona-mark.svg` | Brand mark and favicon |
 | `assets/og-image.png` | Social sharing image |
 | `CNAME` | GitHub Pages custom domain |
 
-Product documentation links use `Sermilion/typeshifft`. The installer URL uses `oila-gmbh/typeshifft`. Publish the documentation and installer at those paths before deploying the site.
+## External links
+
+The page links to these files in the product repository. Keep them in sync if the repository moves or the files are renamed.
+
+| Link | Target |
+|------|--------|
+| Install command | `https://raw.githubusercontent.com/Sermilion/SonaADE/main/install.sh` |
+| Docs | `https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md` |
+| Telemetry privacy | `https://github.com/Sermilion/SonaADE/blob/main/docs/telemetry-privacy.md` |
+| License | `https://github.com/Sermilion/SonaADE/blob/main/LICENSE` |
+
+## Deployment
+
+GitHub Pages serves the site from `main`. `CNAME` sets the custom domain to `sona-ade.com`, which also appears in the canonical URL and Open Graph tags in `index.html`. The domain's DNS must point to GitHub Pages before the site resolves.
