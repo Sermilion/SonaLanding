@@ -481,10 +481,8 @@
         <a href="#control">Control</a>
         <a href="#continuity">Continuity</a>
         <a href="#local">Local-first</a>
-        <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Docs</a>
       </nav>
       <div class="header-actions">
-        <a class="btn btn-quiet btn-sm" href="https://github.com/Sermilion/SonaADE" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a class="btn btn-secondary btn-sm" href="#install">Install</a>
       </div>
     </div>
@@ -502,11 +500,6 @@
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#install">Install Sona</a>
-          <div class="cmd" role="group" aria-label="Install command">
-            <span class="prompt" aria-hidden="true">$</span>
-            <code>curl -fsSL …/SonaADE/main/install.sh | bash</code>
-            <button type="button" class="copy" data-copy="install-cmd">Copy</button>
-          </div>
         </div>
       </div>
 
@@ -743,23 +736,11 @@
     <section class="section install" id="install" aria-labelledby="install-title">
       <div class="wrap">
         <p class="eyebrow"><span class="num">06</span>Install</p>
-        <h2 id="install-title">Install the runtime and the desktop app.</h2>
-        <p class="lede">One command installs the runtime, the desktop app and the skill for each agent you choose. Binaries are checksum-verified. No JDK or build tools required.</p>
-        <div class="surface install-box">
-          <div class="install-row">
-            <code><span class="prompt">$ </span><span id="install-cmd">curl -fsSL https://raw.githubusercontent.com/Sermilion/SonaADE/main/install.sh | bash</span></code>
-            <button type="button" class="copy" data-copy="install-cmd">Copy</button>
-          </div>
-          <div class="install-meta">
-            <span>macOS, Linux and Windows</span>
-            <span>Pre-1.0</span>
-            <span><a href="https://raw.githubusercontent.com/Sermilion/SonaADE/main/install.sh" target="_blank" rel="noopener noreferrer">Read install.sh</a> before running it</span>
-          </div>
-        </div>
+        <h2 id="install-title">Download Sona.</h2>
+        <p class="lede">Choose your operating system on the download page.</p>
         <div class="install-actions">
-          <a class="btn btn-secondary" href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Getting started</a>
+          <a class="btn btn-primary" href="../index.html#download">Download Sona</a>
         </div>
-        <p class="sr-status" id="copy-status" role="status" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></p>
       </div>
     </section>
   </main>
@@ -780,9 +761,7 @@
         </div>
         <div>
           <p>Resources</p>
-          <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Getting started</a>
-          <a href="https://github.com/Sermilion/SonaADE" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/telemetry-privacy.md" target="_blank" rel="noopener noreferrer">Telemetry privacy</a>
+          <a href="../privacy.html">Privacy Policy</a>
         </div>
       </nav>
     </div>
@@ -794,24 +773,6 @@
 
   <script>
     (() => {
-      // Copy buttons
-      const status = document.getElementById("copy-status");
-      document.querySelectorAll("[data-copy]").forEach((btn) => {
-        btn.addEventListener("click", async () => {
-          const text = document.getElementById(btn.dataset.copy).textContent.trim();
-          try {
-            await navigator.clipboard.writeText(text);
-            btn.textContent = "Copied";
-            btn.dataset.state = "done";
-            status.textContent = "Install command copied";
-          } catch {
-            btn.textContent = "Select";
-            status.textContent = "Copy failed. Select the command manually.";
-          }
-          setTimeout(() => { btn.textContent = "Copy"; delete btn.dataset.state; }, 1600);
-        });
-      });
-
       // Product preview: phase pipeline that advances, and ticking timers.
       const phases = ["preplan", "plan", "plan_subtasks", "implement", "simplify", "audit", "review", "verify_findings", "implement_fix", "build", "validate", "write_history", "commit_push"];
       const loopFrom = phases.indexOf("review");

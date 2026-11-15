@@ -363,7 +363,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .facts span { display: block; margin-top: 2px; font-size: 13px; color: var(--fg-muted); }
 
 /* Pricing */
-.pricing-inner { max-width: 880px; }
 .pricing-plans { max-width: 400px; margin-top: 36px; }
 .pricing-plan { display: flex; flex-direction: column; align-items: flex-start; padding: 28px; border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--bg-panel); }
 .pricing-plan-pro { border-color: var(--border-strong); }
@@ -375,10 +374,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .pricing-description { margin: 28px 0; color: var(--fg-2); font-size: 15px; }
 .pricing-plan .btn { margin-top: auto; min-height: 44px; height: auto; padding: 12px 18px; }
 .pricing-details { margin-top: 24px; max-width: 680px; color: var(--fg-muted); font-size: 14px; }
-.pricing-status { margin-top: 12px; color: var(--fg-muted); font-size: 12px; }
+.pricing-status { margin-top: 12px; max-width: 832px; color: var(--fg-muted); font-size: 12px; }
 
 /* Downloads */
-.download-inner { max-width: 640px; }
+.download-package, .download-fallback { max-width: 592px; }
 .downloads [hidden] { display: none; }
 .platform-picker {
   display: flex; gap: 4px; padding: 4px; width: fit-content; max-width: 100%;
@@ -396,10 +395,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .download-primary { min-height: 44px; height: auto; padding: 12px 18px; gap: 10px; }
 .download-primary svg { flex: none; }
 .download-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 18px; color: var(--fg-muted); font-size: 12px; }
-.download-meta a, .download-help, .download-fallback a { text-decoration: underline; text-underline-offset: 4px; }
-.download-meta a:hover, .download-help:hover { color: var(--accent-text); }
+.download-meta a, .download-fallback a { text-decoration: underline; text-underline-offset: 4px; }
+.download-meta a:hover { color: var(--accent-text); }
 .download-note { margin: 20px 0 8px; color: var(--fg-muted); font-size: 12px; }
-.download-help { font-size: 13px; }
 .download-fallback { margin-top: 28px; }
 .download-fallback li { display: flex; flex-direction: column; gap: 6px; padding: 20px 0; border-bottom: 1px solid var(--border); }
 .download-fallback span, .download-fallback a:last-child { font-size: 13px; color: var(--fg-muted); }

@@ -2,8 +2,6 @@
 
 Marketing landing page for Sona, the agentic development environment, at [sona-ade.com](https://sona-ade.com/).
 
-Product repository: [Sermilion/SonaADE](https://github.com/Sermilion/SonaADE).
-
 Static HTML/CSS/JS. No build step.
 
 ## Preview locally
@@ -32,14 +30,11 @@ Open http://127.0.0.1:8765/
 
 ## External links
 
-The page links to installers in Hetzner Object Storage and documentation in the product repository. Keep these targets in sync if files move or change names.
+The page links to installers in Hetzner Object Storage. Keep these targets in sync if files move or change names.
 
 | Link | Target |
 |------|--------|
 | Installers and SHA-256 checksums | `https://sonadesktop.hel1.your-objectstorage.com/latest/` |
-| Docs | `https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md` |
-| Telemetry privacy | `https://github.com/Sermilion/SonaADE/blob/main/docs/telemetry-privacy.md` |
-| GitHub | `https://github.com/Sermilion/SonaADE` |
 
 ## Downloads
 
