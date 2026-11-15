@@ -71,9 +71,12 @@
         </section>
 
         <section aria-labelledby="data-title">
-          <h2 id="data-title">7. Data and telemetry</h2>
+          <h2 id="data-title">7. App usage data, telemetry, and crash reports</h2>
           <p>Sona stores workflow state locally. Connected agents and integrations may send information to their providers according to their settings and policies. Review those policies before granting access to confidential code or data.</p>
-          <p>The <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/telemetry-privacy.md" target="_blank" rel="noopener noreferrer">telemetry documentation</a> describes Sona's telemetry levels, collected fields, destinations, and controls. These terms are not consent to optional data processing.</p>
+          <p>We use PostHog for telemetry and app usage analytics to understand how people use Sona and diagnose problems. Depending on your telemetry level, reports include workflow activity, outcomes, timings, diagnostic counters, and version information. A random installation identifier links telemetry events from the same installation. The default level, named <code>anonymous</code>, limits free-text fields and hashes selected identifiers. The <code>full</code> level also includes the text and path fields listed in the telemetry documentation. The default hosted telemetry relay forwards these events to PostHog.</p>
+          <p>The desktop app uses Sentry for crash reporting and release health, hosted in Sentry's Germany region. Error reports contain exception types, stack-frame source locations, severity, SDK information, and release and environment metadata. They omit exception messages, prompts, source snippets, absolute source paths, and user details. Session reports include a random session identifier, status, error counts, timestamps, and duration. These reports help us diagnose failures and measure app stability.</p>
+          <p>Crash and session reporting use the same restricted payload at both the <code>anonymous</code> and <code>full</code> telemetry levels. Setting telemetry to <code>off</code> disables telemetry uploads and suppresses new Sentry reports. Some diagnostic events still queue locally while telemetry is off and may upload if you later enable it. Disabling reporting does not recall data already submitted.</p>
+          <p>The <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/telemetry-privacy.md" target="_blank" rel="noopener noreferrer">telemetry documentation</a> lists collected fields, destinations, local queues, and controls. The <a href="https://github.com/Sermilion/SonaADE/blob/main/desktop/CRASH_REPORTING.md" target="_blank" rel="noopener noreferrer">crash reporting documentation</a> describes Sentry's collection and controls. These terms are not consent to optional data processing.</p>
         </section>
 
         <section aria-labelledby="availability-title">
