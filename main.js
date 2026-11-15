@@ -1,12 +1,61 @@
 (() => {
   // Downloads: choose once on load, then leave the selection to the visitor.
   const packages = {
-    mac: { name: "macOS", info: "Apple Silicon only, .dmg installer", file: "sona-latest-macos-arm64.dmg" },
-    windows: { name: "Windows", info: "x64, .msi installer", file: "sona-latest-windows-x64.msi" },
-    linux: { name: "Linux", info: "Debian / Ubuntu x64, .deb installer", file: "sona-latest-linux-x64.deb" },
+    mac: { name: "macOS", architecture: "arm64", info: "Apple Silicon only, .dmg installer", file: "sona-latest-macos-arm64.dmg" },
+    windows: { name: "Windows", architecture: "x64", info: "x64, .msi installer", file: "sona-latest-windows-x64.msi" },
+    linux: { name: "Linux", architecture: "x64", info: "Debian / Ubuntu x64, .deb installer", file: "sona-latest-linux-x64.deb" },
   };
   const picker = document.querySelector(".platform-picker");
   const packagePanel = document.querySelector(".download-package");
+  const downloadLink = document.getElementById("download-link");
+  let selectedPlatform = null;
+
+  // Only production clicks count. This file contains public ingestion configuration.
+  const analyticsEnabled = ["sona-ade.com", "www.sona-ade.com"].includes(location.hostname)
+    && navigator.doNotTrack !== "1" && !navigator.globalPrivacyControl;
+  const analyticsConfig = analyticsEnabled
+    ? fetch("analytics-config.json", { credentials: "omit", keepalive: true })
+      .then((response) => response.ok ? response.json() : null)
+      .catch(() => null)
+    : Promise.resolve(null);
+
+  async function trackDownload(platform) {
+    try {
+      const config = await analyticsConfig;
+      const item = packages[platform];
+      if (!config?.api_host || !config.project_token || !item) return;
+      await fetch(config.api_host + "/i/v0/e/", {
+        method: "POST",
+        mode: "no-cors",
+        credentials: "omit",
+        referrerPolicy: "no-referrer",
+        keepalive: true,
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({
+          api_key: config.project_token,
+          event: "download_clicked",
+          distinct_id: crypto.randomUUID(),
+          properties: {
+            source: "sona_landing",
+            platform,
+            architecture: item.architecture,
+            filename: item.file,
+            $process_person_profile: false,
+            $geoip_disable: true,
+          },
+        }),
+      });
+    } catch {
+      // Analytics must never interrupt the installer's normal link navigation.
+    }
+  }
+
+  downloadLink.addEventListener("click", () => {
+    if (!downloadLink.hidden) void trackDownload(selectedPlatform);
+  });
+  downloadLink.addEventListener("auxclick", (event) => {
+    if (event.button === 1 && !downloadLink.hidden) void trackDownload(selectedPlatform);
+  });
 
   function selectPlatform(os) {
     const item = packages[os];
@@ -14,6 +63,7 @@
       button.setAttribute("aria-pressed", String(button.dataset.os === os));
     });
     if (!item) return;
+    selectedPlatform = os;
     const url = "https://sonadesktop.hel1.your-objectstorage.com/latest/" + item.file;
     document.getElementById("download-platform").textContent = "Sona for " + item.name;
     document.getElementById("download-compat").textContent = item.info;
