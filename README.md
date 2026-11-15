@@ -20,6 +20,7 @@ Open http://127.0.0.1:8765/
 |------|------|
 | `index.html` | Page structure, the HTML app preview, and copy |
 | `impressum.html` | Operator name and email, linked from the footer |
+| `privacy.html` | Draft website and app privacy policy, pending processing and retention details |
 | `terms.html` | Terms for the website and software, including the current beta and planned trial |
 | `styles.css` | Design tokens (from the Sona desktop design system), layout and components |
 | `main.js` | OS preselection, download picker and the animated app preview |
