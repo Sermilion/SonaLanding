@@ -1,21 +1,48 @@
 (() => {
-  // Copy buttons
-  const status = document.getElementById("copy-status");
-  document.querySelectorAll("[data-copy]").forEach((btn) => {
-    btn.addEventListener("click", async () => {
-      const text = document.getElementById(btn.dataset.copy).textContent.trim();
-      try {
-        await navigator.clipboard.writeText(text);
-        btn.textContent = "Copied";
-        btn.dataset.state = "done";
-        status.textContent = "Install command copied";
-      } catch {
-        btn.textContent = "Select";
-        status.textContent = "Copy failed. Select the command manually.";
-      }
-      setTimeout(() => { btn.textContent = "Copy"; delete btn.dataset.state; }, 1600);
+  // Downloads: choose once on load, then leave the selection to the visitor.
+  const packages = {
+    mac: { name: "macOS", info: "Apple Silicon only, .dmg installer", file: "sona-latest-macos-arm64.dmg" },
+    windows: { name: "Windows", info: "x64, .msi installer", file: "sona-latest-windows-x64.msi" },
+    linux: { name: "Linux", info: "Debian / Ubuntu x64, .deb installer", file: "sona-latest-linux-x64.deb" },
+  };
+  const picker = document.querySelector(".platform-picker");
+  const packagePanel = document.querySelector(".download-package");
+
+  function selectPlatform(os) {
+    const item = packages[os];
+    picker.querySelectorAll("[data-os]").forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.os === os));
     });
+    if (!item) return;
+    const url = "https://sonadesktop.hel1.your-objectstorage.com/latest/" + item.file;
+    document.getElementById("download-platform").textContent = "Sona for " + item.name;
+    document.getElementById("download-compat").textContent = item.info;
+    document.getElementById("download-label").textContent = "Download for " + item.name;
+    const link = document.getElementById("download-link");
+    link.href = url;
+    link.hidden = false;
+    document.getElementById("download-checksum").href = url + ".sha256";
+    document.getElementById("download-meta").hidden = false;
+  }
+
+  function detectPlatform() {
+    const ua = navigator.userAgent || "";
+    const platform = navigator.userAgentData?.platform || navigator.platform || ua;
+    const mobile = navigator.userAgentData?.mobile || /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
+    const ipad = /Mac/i.test(platform) && navigator.maxTouchPoints > 1;
+    if (mobile || ipad || /CrOS/i.test(ua)) return null;
+    if (/Mac/i.test(platform)) return "mac";
+    if (/Win/i.test(platform)) return "windows";
+    if (/Linux/i.test(platform)) return "linux";
+    return null;
+  }
+
+  picker.querySelectorAll("[data-os]").forEach((button) => {
+    button.addEventListener("click", () => selectPlatform(button.dataset.os));
   });
+  selectPlatform(detectPlatform());
+  picker.hidden = false;
+  packagePanel.hidden = false;
 
   // Product preview: phase pipeline that advances, and ticking timers.
   const phases = ["preplan", "plan", "plan_subtasks", "implement", "simplify", "audit", "review", "verify_findings", "implement_fix", "build", "validate", "write_history", "commit_push"];

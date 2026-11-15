@@ -20,7 +20,7 @@ Open http://127.0.0.1:8765/
 |------|------|
 | `index.html` | Page structure, the HTML app preview, and copy |
 | `styles.css` | Design tokens (from the Sona desktop design system), layout and components |
-| `main.js` | Install-command copy buttons and the animated app preview |
+| `main.js` | OS preselection, download picker and the animated app preview |
 | `assets/sona-mark.svg` | Ping mark on a dark tile, used as the favicon |
 | `assets/og-image.png` | Social sharing image |
 | `CNAME` | GitHub Pages custom domain |
@@ -28,14 +28,20 @@ Open http://127.0.0.1:8765/
 
 ## External links
 
-The page links to these files in the product repository. Keep them in sync if the repository moves or the files are renamed.
+The page links to installers in Hetzner Object Storage and documentation in the product repository. Keep these targets in sync if files move or change names.
 
 | Link | Target |
 |------|--------|
-| Install command | `https://raw.githubusercontent.com/Sermilion/SonaADE/main/install.sh` |
+| Installers and SHA-256 checksums | `https://sonadesktop.hel1.your-objectstorage.com/latest/` |
 | Docs | `https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md` |
 | Telemetry privacy | `https://github.com/Sermilion/SonaADE/blob/main/docs/telemetry-privacy.md` |
 | GitHub | `https://github.com/Sermilion/SonaADE` |
+
+## Downloads
+
+The picker preselects macOS, Windows or Linux using browser OS information. Mobile devices, ChromeOS and unknown systems start with no selection. Visitors can always switch platforms. OS detection does not detect CPU architecture, so the page shows the available architecture beside each installer.
+
+Downloads use the stable `latest/sona-latest-macos-arm64.dmg`, `latest/sona-latest-windows-x64.msi` and `latest/sona-latest-linux-x64.deb` paths. Each checksum link appends `.sha256` to its installer URL. With JavaScript disabled, the section lists all three installers and checksums.
 
 ## Deployment
 

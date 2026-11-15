@@ -79,11 +79,11 @@
         <a href="#continuity">Continuity</a>
         <a href="#agents">Agents</a>
         <a href="#local">Local-first</a>
+        <a href="#pricing">Pricing</a>
         <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Docs</a>
       </nav>
       <div class="header-actions">
-        <a class="btn btn-quiet btn-sm" href="https://github.com/Sermilion/SonaADE" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a class="btn btn-secondary btn-sm" href="#install">Install</a>
+        <a class="btn btn-secondary btn-sm" href="#download">Download Sona</a>
       </div>
     </div>
   </header>
@@ -99,12 +99,7 @@
           You decide what starts and what leaves your machine. Every run is stored locally, so work resumes after a crash, a usage limit or a change of agent.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#install">Install Sona</a>
-          <div class="cmd" role="group" aria-label="Install command">
-            <span class="prompt" aria-hidden="true">$</span>
-            <code>curl -fsSL …/SonaADE/main/install.sh | bash</code>
-            <button type="button" class="copy" data-copy="install-cmd">Copy</button>
-          </div>
+          <a class="btn btn-primary" href="#download">Download Sona</a>
         </div>
       </div>
 
@@ -368,27 +363,59 @@
       </div>
     </section>
 
-    <!-- Install -->
-    <section class="section install" id="install" aria-labelledby="install-title">
-      <div class="wrap">
-        <p class="eyebrow"><span class="num">07</span>Install</p>
-        <h2 id="install-title">Install the runtime and the desktop app.</h2>
-        <p class="lede">One command installs the runtime, the desktop app and the skill for each agent you choose. Binaries are checksum-verified. No JDK or build tools required.</p>
-        <div class="surface install-box">
-          <div class="install-row">
-            <code><span class="prompt">$ </span><span id="install-cmd">curl -fsSL https://raw.githubusercontent.com/Sermilion/SonaADE/main/install.sh | bash</span></code>
-            <button type="button" class="copy" data-copy="install-cmd">Copy</button>
-          </div>
-          <div class="install-meta">
-            <span>macOS, Linux and Windows</span>
-            <span>Pre-1.0</span>
-            <span><a href="https://raw.githubusercontent.com/Sermilion/SonaADE/main/install.sh" target="_blank" rel="noopener noreferrer">Read install.sh</a> before running it</span>
+    <!-- Pricing -->
+    <section class="section pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="wrap pricing-inner">
+        <p class="eyebrow"><span class="num">07</span>Pricing</p>
+        <h2 id="pricing-title">Free while we're in beta.</h2>
+        <p class="lede">Try every feature, including concurrent runs. Pro pricing below is planned for after beta and isn't active yet.</p>
+        <div class="pricing-plans" aria-label="Planned pricing after beta">
+          <article class="pricing-plan pricing-plan-pro" aria-labelledby="pro-title">
+            <p class="pricing-timing">Planned after beta</p>
+            <h3 id="pro-title">Pro</h3>
+            <p class="pricing-price">$12<span> / month</span></p>
+            <p class="pricing-billing">Or $120 per year.</p>
+            <p class="pricing-description">Multiple active runs at once, across your repositories.</p>
+            <a class="btn btn-primary" href="#download">Try the free beta</a>
+          </article>
+        </div>
+        <p class="pricing-details">Pro includes the full workflow, with review, validation and recovery. Your coding agent subscription or API usage is separate.</p>
+        <p class="pricing-status">No payment required during beta. Pricing and plan details may change before launch.</p>
+      </div>
+    </section>
+
+    <!-- Downloads -->
+    <section class="section downloads" id="download" aria-labelledby="download-title">
+      <div class="wrap download-inner">
+        <p class="eyebrow"><span class="num">08</span>Download</p>
+        <h2 id="download-title">Download Sona.</h2>
+        <p class="lede">Sona is in beta and free during the beta period.</p>
+        <div class="platform-picker" role="group" aria-label="Choose operating system" hidden>
+          <button type="button" data-os="mac" aria-pressed="false">macOS</button>
+          <button type="button" data-os="windows" aria-pressed="false">Windows</button>
+          <button type="button" data-os="linux" aria-pressed="false">Linux</button>
+        </div>
+        <div class="download-package" aria-live="polite" aria-atomic="true" hidden>
+          <h3 id="download-platform">Choose your operating system</h3>
+          <p class="download-compat" id="download-compat">Select a desktop platform above to see its installer.</p>
+          <a class="btn btn-primary download-primary" id="download-link" hidden>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5" /></svg>
+            <span id="download-label"></span>
+          </a>
+          <div class="download-meta" id="download-meta" hidden>
+            <span>Latest beta release</span>
+            <a id="download-checksum">SHA-256 checksum</a>
           </div>
         </div>
-        <div class="install-actions">
-          <a class="btn btn-secondary" href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Getting started</a>
-        </div>
-        <p class="sr-only" id="copy-status" role="status" aria-live="polite"></p>
+        <noscript>
+          <ul class="download-fallback">
+            <li><a href="https://sonadesktop.hel1.your-objectstorage.com/latest/sona-latest-macos-arm64.dmg">Download for macOS</a><span>Apple Silicon only, .dmg installer</span><a href="https://sonadesktop.hel1.your-objectstorage.com/latest/sona-latest-macos-arm64.dmg.sha256">SHA-256 checksum</a></li>
+            <li><a href="https://sonadesktop.hel1.your-objectstorage.com/latest/sona-latest-windows-x64.msi">Download for Windows</a><span>x64, .msi installer</span><a href="https://sonadesktop.hel1.your-objectstorage.com/latest/sona-latest-windows-x64.msi.sha256">SHA-256 checksum</a></li>
+            <li><a href="https://sonadesktop.hel1.your-objectstorage.com/latest/sona-latest-linux-x64.deb">Download for Linux</a><span>Debian / Ubuntu x64, .deb installer</span><a href="https://sonadesktop.hel1.your-objectstorage.com/latest/sona-latest-linux-x64.deb.sha256">SHA-256 checksum</a></li>
+          </ul>
+        </noscript>
+        <p class="download-note">Unsigned installers. Your operating system may show a security warning.</p>
+        <a class="download-help" href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Installation help</a>
       </div>
     </section>
   </main>
@@ -407,11 +434,11 @@
           <a href="#continuity">Continuity</a>
           <a href="#agents">Agents</a>
           <a href="#local">Local-first</a>
+          <a href="#pricing">Pricing</a>
         </div>
         <div>
           <p>Resources</p>
           <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/getting-started.md" target="_blank" rel="noopener noreferrer">Getting started</a>
-          <a href="https://github.com/Sermilion/SonaADE" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://github.com/Sermilion/SonaADE/blob/main/docs/telemetry-privacy.md" target="_blank" rel="noopener noreferrer">Telemetry privacy</a>
         </div>
       </nav>
